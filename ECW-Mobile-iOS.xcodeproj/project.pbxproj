@@ -3,17 +3,23 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D4241104481C6F05E9C6259 /* Pods_ECW_Mobile_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E98E89A1FF9471E67951A7FA /* Pods_ECW_Mobile_iOSUITests.framework */; };
+		302A1ABF582028A6C4E447DA /* Pods_ECW_Mobile_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 816BBA12175512E197BC42A7 /* Pods_ECW_Mobile_iOS.framework */; };
+		3932EDE822E2261800D72E88 /* SideBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3932EDE722E2261800D72E88 /* SideBarViewController.swift */; };
+		3974809122E33807006AD6AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3974809022E33807006AD6AD /* Assets.xcassets */; };
+		39B3CED922E03B1C008F5DA7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B3CED822E03B1C008F5DA7 /* HomeViewController.swift */; };
+		39B3CEDF22E095FE008F5DA7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B3CEDE22E095FE008F5DA7 /* User.swift */; };
 		39D3971222DF854E004B7FF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D3971122DF854E004B7FF2 /* AppDelegate.swift */; };
-		39D3971422DF854E004B7FF2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D3971322DF854E004B7FF2 /* ViewController.swift */; };
+		39D3971422DF854E004B7FF2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D3971322DF854E004B7FF2 /* LoginViewController.swift */; };
 		39D3971722DF854E004B7FF2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39D3971522DF854E004B7FF2 /* Main.storyboard */; };
-		39D3971922DF8552004B7FF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39D3971822DF8552004B7FF2 /* Assets.xcassets */; };
 		39D3971C22DF8552004B7FF2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39D3971A22DF8552004B7FF2 /* LaunchScreen.storyboard */; };
 		39D3972722DF8552004B7FF2 /* ECW_Mobile_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D3972622DF8552004B7FF2 /* ECW_Mobile_iOSTests.swift */; };
 		39D3973222DF8553004B7FF2 /* ECW_Mobile_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D3973122DF8553004B7FF2 /* ECW_Mobile_iOSUITests.swift */; };
+		7B2535F94495BB7BCED59D7A /* Pods_ECW_Mobile_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1C2A5669D1D0DD0F252654C /* Pods_ECW_Mobile_iOSTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,11 +40,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3932EDE722E2261800D72E88 /* SideBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarViewController.swift; sourceTree = "<group>"; };
+		3974809022E33807006AD6AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		39B3CED822E03B1C008F5DA7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		39B3CEDE22E095FE008F5DA7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		39D3970E22DF854E004B7FF2 /* ECW-Mobile-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ECW-Mobile-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		39D3971122DF854E004B7FF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		39D3971322DF854E004B7FF2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		39D3971322DF854E004B7FF2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		39D3971622DF854E004B7FF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		39D3971822DF8552004B7FF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		39D3971B22DF8552004B7FF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		39D3971D22DF8552004B7FF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		39D3972222DF8552004B7FF2 /* ECW-Mobile-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ECW-Mobile-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +56,15 @@
 		39D3972D22DF8553004B7FF2 /* ECW-Mobile-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ECW-Mobile-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		39D3973122DF8553004B7FF2 /* ECW_Mobile_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECW_Mobile_iOSUITests.swift; sourceTree = "<group>"; };
 		39D3973322DF8553004B7FF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		63168205923B38774834B96A /* Pods-ECW-Mobile-iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ECW-Mobile-iOSTests.release.xcconfig"; path = "Target Support Files/Pods-ECW-Mobile-iOSTests/Pods-ECW-Mobile-iOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		816BBA12175512E197BC42A7 /* Pods_ECW_Mobile_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ECW_Mobile_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		872F257A898B8B24DF593255 /* Pods-ECW-Mobile-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ECW-Mobile-iOS.debug.xcconfig"; path = "Target Support Files/Pods-ECW-Mobile-iOS/Pods-ECW-Mobile-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		9CBF9D1F952FE825FF6D32B7 /* Pods-ECW-Mobile-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ECW-Mobile-iOS.release.xcconfig"; path = "Target Support Files/Pods-ECW-Mobile-iOS/Pods-ECW-Mobile-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		B0F2F7E19A140F31B307E884 /* Pods-ECW-Mobile-iOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ECW-Mobile-iOSUITests.release.xcconfig"; path = "Target Support Files/Pods-ECW-Mobile-iOSUITests/Pods-ECW-Mobile-iOSUITests.release.xcconfig"; sourceTree = "<group>"; };
+		B1C2A5669D1D0DD0F252654C /* Pods_ECW_Mobile_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ECW_Mobile_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B894E430136408FE249246B3 /* Pods-ECW-Mobile-iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ECW-Mobile-iOSTests.debug.xcconfig"; path = "Target Support Files/Pods-ECW-Mobile-iOSTests/Pods-ECW-Mobile-iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B9B836EF62FCB7B2C13A8F67 /* Pods-ECW-Mobile-iOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ECW-Mobile-iOSUITests.debug.xcconfig"; path = "Target Support Files/Pods-ECW-Mobile-iOSUITests/Pods-ECW-Mobile-iOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		E98E89A1FF9471E67951A7FA /* Pods_ECW_Mobile_iOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ECW_Mobile_iOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				302A1ABF582028A6C4E447DA /* Pods_ECW_Mobile_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B2535F94495BB7BCED59D7A /* Pods_ECW_Mobile_iOSTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,12 +88,39 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D4241104481C6F05E9C6259 /* Pods_ECW_Mobile_iOSUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3974808A22E2F808006AD6AD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				39D3971522DF854E004B7FF2 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		39B3CEDC22E09578008F5DA7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				39B3CED822E03B1C008F5DA7 /* HomeViewController.swift */,
+				39D3971322DF854E004B7FF2 /* LoginViewController.swift */,
+				3932EDE722E2261800D72E88 /* SideBarViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		39B3CEDD22E095DB008F5DA7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				39B3CEDE22E095FE008F5DA7 /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		39D3970522DF854D004B7FF2 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +128,8 @@
 				39D3972522DF8552004B7FF2 /* ECW-Mobile-iOSTests */,
 				39D3973022DF8553004B7FF2 /* ECW-Mobile-iOSUITests */,
 				39D3970F22DF854E004B7FF2 /* Products */,
+				4A9811763ECFD857F2CEC735 /* Pods */,
+				681FF2565A7C2D2AFBBD99C7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,11 +147,12 @@
 			isa = PBXGroup;
 			children = (
 				39D3971122DF854E004B7FF2 /* AppDelegate.swift */,
-				39D3971322DF854E004B7FF2 /* ViewController.swift */,
-				39D3971522DF854E004B7FF2 /* Main.storyboard */,
-				39D3971822DF8552004B7FF2 /* Assets.xcassets */,
+				39B3CEDD22E095DB008F5DA7 /* Model */,
+				3974808A22E2F808006AD6AD /* View */,
+				39B3CEDC22E09578008F5DA7 /* Controller */,
 				39D3971A22DF8552004B7FF2 /* LaunchScreen.storyboard */,
 				39D3971D22DF8552004B7FF2 /* Info.plist */,
+				3974809022E33807006AD6AD /* Assets.xcassets */,
 			);
 			path = "ECW-Mobile-iOS";
 			sourceTree = "<group>";
@@ -125,6 +175,29 @@
 			path = "ECW-Mobile-iOSUITests";
 			sourceTree = "<group>";
 		};
+		4A9811763ECFD857F2CEC735 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				872F257A898B8B24DF593255 /* Pods-ECW-Mobile-iOS.debug.xcconfig */,
+				9CBF9D1F952FE825FF6D32B7 /* Pods-ECW-Mobile-iOS.release.xcconfig */,
+				B894E430136408FE249246B3 /* Pods-ECW-Mobile-iOSTests.debug.xcconfig */,
+				63168205923B38774834B96A /* Pods-ECW-Mobile-iOSTests.release.xcconfig */,
+				B9B836EF62FCB7B2C13A8F67 /* Pods-ECW-Mobile-iOSUITests.debug.xcconfig */,
+				B0F2F7E19A140F31B307E884 /* Pods-ECW-Mobile-iOSUITests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		681FF2565A7C2D2AFBBD99C7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				816BBA12175512E197BC42A7 /* Pods_ECW_Mobile_iOS.framework */,
+				B1C2A5669D1D0DD0F252654C /* Pods_ECW_Mobile_iOSTests.framework */,
+				E98E89A1FF9471E67951A7FA /* Pods_ECW_Mobile_iOSUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +205,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 39D3973622DF8553004B7FF2 /* Build configuration list for PBXNativeTarget "ECW-Mobile-iOS" */;
 			buildPhases = (
+				91095B08D5A73B4A5C1F14B0 /* [CP] Check Pods Manifest.lock */,
 				39D3970A22DF854E004B7FF2 /* Sources */,
 				39D3970B22DF854E004B7FF2 /* Frameworks */,
 				39D3970C22DF854E004B7FF2 /* Resources */,
+				60F2C0C65B5CAAA5CF085540 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -149,6 +224,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 39D3973922DF8553004B7FF2 /* Build configuration list for PBXNativeTarget "ECW-Mobile-iOSTests" */;
 			buildPhases = (
+				044F91FCF84B90CCBCBF9C52 /* [CP] Check Pods Manifest.lock */,
 				39D3971E22DF8552004B7FF2 /* Sources */,
 				39D3971F22DF8552004B7FF2 /* Frameworks */,
 				39D3972022DF8552004B7FF2 /* Resources */,
@@ -167,6 +243,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 39D3973C22DF8553004B7FF2 /* Build configuration list for PBXNativeTarget "ECW-Mobile-iOSUITests" */;
 			buildPhases = (
+				72FC8C82B72CBE3549485045 /* [CP] Check Pods Manifest.lock */,
 				39D3972922DF8553004B7FF2 /* Sources */,
 				39D3972A22DF8553004B7FF2 /* Frameworks */,
 				39D3972B22DF8553004B7FF2 /* Resources */,
@@ -230,7 +307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				39D3971C22DF8552004B7FF2 /* LaunchScreen.storyboard in Resources */,
-				39D3971922DF8552004B7FF2 /* Assets.xcassets in Resources */,
+				3974809122E33807006AD6AD /* Assets.xcassets in Resources */,
 				39D3971722DF854E004B7FF2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -251,13 +328,102 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		044F91FCF84B90CCBCBF9C52 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ECW-Mobile-iOSTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		60F2C0C65B5CAAA5CF085540 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ECW-Mobile-iOS/Pods-ECW-Mobile-iOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ECW-Mobile-iOS/Pods-ECW-Mobile-iOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ECW-Mobile-iOS/Pods-ECW-Mobile-iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		72FC8C82B72CBE3549485045 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ECW-Mobile-iOSUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		91095B08D5A73B4A5C1F14B0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ECW-Mobile-iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		39D3970A22DF854E004B7FF2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				39D3971422DF854E004B7FF2 /* ViewController.swift in Sources */,
+				39B3CEDF22E095FE008F5DA7 /* User.swift in Sources */,
+				39D3971422DF854E004B7FF2 /* LoginViewController.swift in Sources */,
+				3932EDE822E2261800D72E88 /* SideBarViewController.swift in Sources */,
 				39D3971222DF854E004B7FF2 /* AppDelegate.swift in Sources */,
+				39B3CED922E03B1C008F5DA7 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,11 +596,13 @@
 		};
 		39D3973722DF8553004B7FF2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 872F257A898B8B24DF593255 /* Pods-ECW-Mobile-iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V84Y72FMAV;
 				INFOPLIST_FILE = "ECW-Mobile-iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -448,11 +616,13 @@
 		};
 		39D3973822DF8553004B7FF2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9CBF9D1F952FE825FF6D32B7 /* Pods-ECW-Mobile-iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V84Y72FMAV;
 				INFOPLIST_FILE = "ECW-Mobile-iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -466,6 +636,7 @@
 		};
 		39D3973A22DF8553004B7FF2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B894E430136408FE249246B3 /* Pods-ECW-Mobile-iOSTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -487,6 +658,7 @@
 		};
 		39D3973B22DF8553004B7FF2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 63168205923B38774834B96A /* Pods-ECW-Mobile-iOSTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -508,6 +680,7 @@
 		};
 		39D3973D22DF8553004B7FF2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B9B836EF62FCB7B2C13A8F67 /* Pods-ECW-Mobile-iOSUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -528,6 +701,7 @@
 		};
 		39D3973E22DF8553004B7FF2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B0F2F7E19A140F31B307E884 /* Pods-ECW-Mobile-iOSUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

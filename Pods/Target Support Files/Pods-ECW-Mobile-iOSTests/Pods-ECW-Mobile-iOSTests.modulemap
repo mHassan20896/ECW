@@ -1,0 +1,6 @@
+framework module Pods_ECW_Mobile_iOSTests {
+  umbrella header "Pods-ECW-Mobile-iOSTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
