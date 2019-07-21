@@ -11,6 +11,7 @@ import SideMenuSwift
 import SwiftyJSON
 import Alamofire
 import SVProgressHUD
+import FBSDKCoreKit
 
 class HomeViewController: UIViewController {
 
@@ -28,6 +29,7 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func sideBarButtonPressed(_ sender: Any) {
+            
         self.sideMenuController?.revealMenu()
     }
 

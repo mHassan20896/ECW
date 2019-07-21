@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import AlamofireImage
+import FBSDKLoginKit
 
 class SideBarViewController: UIViewController {
 
@@ -37,7 +38,11 @@ class SideBarViewController: UIViewController {
     
     
     @IBAction func logOutPressed(_ sender: Any) {
+        let loginManager = LoginManager()
         
+        loginManager.logOut()
+        
+        self.dismiss(animated: true, completion: nil)
     }
     
 }

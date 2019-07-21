@@ -19,10 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8kd-Rq-9I3">
-                                <rect key="frame" x="47" y="307" width="281" height="53"/>
+                                <rect key="frame" x="0.0" y="607" width="375" height="60"/>
                                 <color key="backgroundColor" red="0.0" green="0.47908455129999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="53" id="tui-XR-jcS"/>
+                                    <constraint firstAttribute="height" constant="60" id="tui-XR-jcS"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <state key="normal" title="  Login using Facebook" image="icons8-facebook-f-24"/>
@@ -30,17 +30,23 @@
                                     <action selector="loginPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e0E-YR-JwR"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bigstock-blank-scholarship-application-15610232" translatesAutoresizingMaskIntoConstraints="NO" id="hIz-ie-xFN">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="607"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="8kd-Rq-9I3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8QC-Ws-vtb"/>
-                            <constraint firstItem="8kd-Rq-9I3" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="enk-6v-BTi"/>
-                            <constraint firstItem="8kd-Rq-9I3" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.75" id="xmD-qs-JNl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="8kd-Rq-9I3" secondAttribute="bottom" id="Iq7-hb-WPJ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8kd-Rq-9I3" secondAttribute="trailing" id="Oh1-fp-dbX"/>
+                            <constraint firstItem="8kd-Rq-9I3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="QXz-gh-qU8"/>
+                            <constraint firstItem="8kd-Rq-9I3" firstAttribute="top" secondItem="hIz-ie-xFN" secondAttribute="bottom" id="jWh-88-x9t"/>
+                            <constraint firstItem="hIz-ie-xFN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="srK-wm-s3B"/>
+                            <constraint firstItem="hIz-ie-xFN" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="yYT-2o-qJT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hIz-ie-xFN" secondAttribute="trailing" id="zAB-E7-3Ux"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="loginButton" destination="8kd-Rq-9I3" id="YZz-s5-55C"/>
                         <segue destination="aKh-rS-1XL" kind="show" identifier="goToHome" id="neY-Ec-Tbm"/>
                     </connections>
                 </viewController>
@@ -227,6 +233,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bigstock-blank-scholarship-application-15610232" width="900" height="600"/>
         <image name="icons8-facebook-f-24" width="24" height="24"/>
         <image name="icons8-menu-50" width="50" height="50"/>
     </resources>

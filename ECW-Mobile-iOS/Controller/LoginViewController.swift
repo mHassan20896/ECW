@@ -16,17 +16,47 @@ import SVProgressHUD
 
 class LoginViewController: UIViewController {
     
-    @IBOutlet weak var loginButton: UIButton!
     override func viewDidLoad() {
         // Add a custom login button to your app
-        loginButton.layer.cornerRadius = 25
+        SVProgressHUD.show()
     }
     
-    // Once the button is clicked, show the login dialog
-    @objc func loginButtonClicked() {
-        
-        
-        
+    override func viewDidAppear(_ animated: Bool) {
+        if AccessToken.current != nil {
+            
+            let connection = GraphRequestConnection()
+            connection.add(GraphRequest(graphPath: "me", parameters: ["fields": "email, first_name, last_name, picture.type(large)"])) { (response, result, error) in
+                print(response!)
+                
+                if error != nil {
+                    let alert = UIAlertController(title: "Error Occured", message: "Check your internet connection and try again", preferredStyle: .alert)
+                    alert.addAction((UIAlertAction(title: "OK", style: .default){ action in
+                        
+                        alert.dismiss(animated: true, completion: nil)
+                        
+                    }))
+                    self.present(alert, animated: true, completion: nil)
+                }
+                
+                if let data = result as? [String: Any] {
+                    print(result!)
+                    User.sharedInstance.firstName = data["first_name"] as! String
+                    User.sharedInstance.email = data["email"] as! String
+                    User.sharedInstance.lastName = data["last_name"] as! String
+                    
+                    let profile = data["picture"] as! [String : Any]
+                    let url = profile["data"] as! [String : Any]
+                    User.sharedInstance.profilePicture = URL.init(string: url["url"] as! String)
+                    
+                    self.performSegue(withIdentifier: "goToHome", sender: self)
+                }
+            }
+            
+            connection.start()
+        }
+        else{
+            SVProgressHUD.dismiss()
+        }
     }
     
     @IBAction func loginPressed(_ sender: Any) {
@@ -47,26 +77,10 @@ class LoginViewController: UIViewController {
             case .cancelled:
                 SVProgressHUD.dismiss()
             case .success(_, _, _):
-                let connection = GraphRequestConnection()
-                connection.add(GraphRequest(graphPath: "me", parameters: ["fields": "email, first_name, last_name, picture.type(large)"])) { (response, result, error) in
-                    print(response!)
-                    
-                    if let data = result as? [String: Any] {
-                        print(result!)
-                        User.sharedInstance.firstName = data["first_name"] as! String
-                        User.sharedInstance.email = data["email"] as! String
-                        User.sharedInstance.lastName = data["last_name"] as! String
-                        
-                        let profile = data["picture"] as! [String : Any]
-                        let url = profile["data"] as! [String : Any]
-                        User.sharedInstance.profilePicture = URL.init(string: url["url"] as! String)
-                    }
-                    
                     self.performSegue(withIdentifier: "goToHome", sender: self)
-                }
-                connection.start()
             }
         }
+        
     }
 }
 
