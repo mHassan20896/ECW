@@ -10,6 +10,9 @@ import UIKit
 
 class SchemeTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var details: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

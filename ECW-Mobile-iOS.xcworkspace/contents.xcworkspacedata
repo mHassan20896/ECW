@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:SchemesTableViewController.swift">
+   </FileRef>
+   <FileRef
       location = "group:ECW-Mobile-iOS.xcodeproj">
    </FileRef>
    <FileRef
