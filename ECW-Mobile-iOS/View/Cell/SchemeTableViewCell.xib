@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="SchemeTableViewCell" customModule="ECW_Mobile_iOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ea-j9-i3X">
+                        <rect key="frame" x="15" y="12.5" width="290" height="74.5"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="67101538_445425629372230_8584359964967960576_n" translatesAutoresizingMaskIntoConstraints="NO" id="D01-id-P2D">
+                                <rect key="frame" x="0.0" y="0.0" width="74.5" height="74.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="D01-id-P2D" secondAttribute="height" id="xyd-fA-xGz"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BSCS Scholarship" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gx9-O4-A6r">
+                                <rect key="frame" x="74.5" y="7" width="143.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scholarships for BSCS students is available" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="slV-II-aaY">
+                                <rect key="frame" x="74.5" y="28" width="215.5" height="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="slV-II-aaY" firstAttribute="leading" secondItem="D01-id-P2D" secondAttribute="trailing" id="1Gb-cS-8kB"/>
+                            <constraint firstItem="Gx9-O4-A6r" firstAttribute="leading" secondItem="D01-id-P2D" secondAttribute="trailing" id="1uq-vD-DCg"/>
+                            <constraint firstItem="D01-id-P2D" firstAttribute="top" secondItem="1ea-j9-i3X" secondAttribute="top" id="2VU-IQ-Jzd"/>
+                            <constraint firstItem="D01-id-P2D" firstAttribute="leading" secondItem="1ea-j9-i3X" secondAttribute="leading" id="6Wp-Ht-3iq"/>
+                            <constraint firstItem="Gx9-O4-A6r" firstAttribute="top" secondItem="1ea-j9-i3X" secondAttribute="top" constant="7" id="KUb-1t-lOx"/>
+                            <constraint firstItem="slV-II-aaY" firstAttribute="top" secondItem="Gx9-O4-A6r" secondAttribute="bottom" id="VK9-t5-BJJ"/>
+                            <constraint firstAttribute="bottom" secondItem="D01-id-P2D" secondAttribute="bottom" id="erQ-Su-2eg"/>
+                            <constraint firstAttribute="trailing" secondItem="slV-II-aaY" secondAttribute="trailing" id="rHy-IV-Rta"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="1ea-j9-i3X" secondAttribute="trailing" constant="15" id="4NM-Ip-PMs"/>
+                    <constraint firstItem="1ea-j9-i3X" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.75" id="D30-Xu-BnE"/>
+                    <constraint firstItem="1ea-j9-i3X" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="m3k-LX-Koi"/>
+                    <constraint firstItem="1ea-j9-i3X" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="rAJ-45-uLv"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="67101538_445425629372230_8584359964967960576_n" width="600" height="600"/>
+    </resources>
+</document>

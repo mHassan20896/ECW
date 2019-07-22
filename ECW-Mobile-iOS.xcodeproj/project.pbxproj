@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0D4241104481C6F05E9C6259 /* Pods_ECW_Mobile_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E98E89A1FF9471E67951A7FA /* Pods_ECW_Mobile_iOSUITests.framework */; };
 		302A1ABF582028A6C4E447DA /* Pods_ECW_Mobile_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 816BBA12175512E197BC42A7 /* Pods_ECW_Mobile_iOS.framework */; };
+		393221E122E5E35B0024BCAE /* SchemeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393221DF22E5E35B0024BCAE /* SchemeTableViewCell.swift */; };
+		393221E222E5E35B0024BCAE /* SchemeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 393221E022E5E35B0024BCAE /* SchemeTableViewCell.xib */; };
 		3932EDE822E2261800D72E88 /* SideBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3932EDE722E2261800D72E88 /* SideBarViewController.swift */; };
 		3974809122E33807006AD6AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3974809022E33807006AD6AD /* Assets.xcassets */; };
 		39B3CED922E03B1C008F5DA7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B3CED822E03B1C008F5DA7 /* HomeViewController.swift */; };
@@ -40,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		393221DF22E5E35B0024BCAE /* SchemeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemeTableViewCell.swift; sourceTree = "<group>"; };
+		393221E022E5E35B0024BCAE /* SchemeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SchemeTableViewCell.xib; sourceTree = "<group>"; };
 		3932EDE722E2261800D72E88 /* SideBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarViewController.swift; sourceTree = "<group>"; };
 		3974809022E33807006AD6AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		39B3CED822E03B1C008F5DA7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -95,9 +99,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		393221DC22E5E1E80024BCAE /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				393221DF22E5E35B0024BCAE /* SchemeTableViewCell.swift */,
+				393221E022E5E35B0024BCAE /* SchemeTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		3974808A22E2F808006AD6AD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				393221DC22E5E1E80024BCAE /* Cell */,
 				39D3971522DF854E004B7FF2 /* Main.storyboard */,
 			);
 			path = View;
@@ -306,6 +320,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				393221E222E5E35B0024BCAE /* SchemeTableViewCell.xib in Resources */,
 				39D3971C22DF8552004B7FF2 /* LaunchScreen.storyboard in Resources */,
 				3974809122E33807006AD6AD /* Assets.xcassets in Resources */,
 				39D3971722DF854E004B7FF2 /* Main.storyboard in Resources */,
@@ -421,6 +436,7 @@
 			files = (
 				39B3CEDF22E095FE008F5DA7 /* User.swift in Sources */,
 				39D3971422DF854E004B7FF2 /* LoginViewController.swift in Sources */,
+				393221E122E5E35B0024BCAE /* SchemeTableViewCell.swift in Sources */,
 				3932EDE822E2261800D72E88 /* SideBarViewController.swift in Sources */,
 				39D3971222DF854E004B7FF2 /* AppDelegate.swift in Sources */,
 				39B3CED922E03B1C008F5DA7 /* HomeViewController.swift in Sources */,
