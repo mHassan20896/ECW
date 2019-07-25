@@ -12,6 +12,8 @@
 		393221E122E5E35B0024BCAE /* SchemeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393221DF22E5E35B0024BCAE /* SchemeTableViewCell.swift */; };
 		393221E222E5E35B0024BCAE /* SchemeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 393221E022E5E35B0024BCAE /* SchemeTableViewCell.xib */; };
 		3932EDE822E2261800D72E88 /* SideBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3932EDE722E2261800D72E88 /* SideBarViewController.swift */; };
+		3971A5D522E9D87E00AB7F2C /* SchemesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3971A5D422E9D87E00AB7F2C /* SchemesTableViewController.swift */; };
+		3971A5D722E9D89D00AB7F2C /* Scheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3971A5D622E9D89D00AB7F2C /* Scheme.swift */; };
 		3974809122E33807006AD6AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3974809022E33807006AD6AD /* Assets.xcassets */; };
 		39B3CED922E03B1C008F5DA7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B3CED822E03B1C008F5DA7 /* HomeViewController.swift */; };
 		39B3CEDF22E095FE008F5DA7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B3CEDE22E095FE008F5DA7 /* User.swift */; };
@@ -45,6 +47,8 @@
 		393221DF22E5E35B0024BCAE /* SchemeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemeTableViewCell.swift; sourceTree = "<group>"; };
 		393221E022E5E35B0024BCAE /* SchemeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SchemeTableViewCell.xib; sourceTree = "<group>"; };
 		3932EDE722E2261800D72E88 /* SideBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarViewController.swift; sourceTree = "<group>"; };
+		3971A5D422E9D87E00AB7F2C /* SchemesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemesTableViewController.swift; sourceTree = "<group>"; };
+		3971A5D622E9D89D00AB7F2C /* Scheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scheme.swift; sourceTree = "<group>"; };
 		3974809022E33807006AD6AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		39B3CED822E03B1C008F5DA7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		39B3CEDE22E095FE008F5DA7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -123,6 +127,7 @@
 				39B3CED822E03B1C008F5DA7 /* HomeViewController.swift */,
 				39D3971322DF854E004B7FF2 /* LoginViewController.swift */,
 				3932EDE722E2261800D72E88 /* SideBarViewController.swift */,
+				3971A5D422E9D87E00AB7F2C /* SchemesTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -131,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				39B3CEDE22E095FE008F5DA7 /* User.swift */,
+				3971A5D622E9D89D00AB7F2C /* Scheme.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -434,8 +440,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3971A5D722E9D89D00AB7F2C /* Scheme.swift in Sources */,
 				39B3CEDF22E095FE008F5DA7 /* User.swift in Sources */,
 				39D3971422DF854E004B7FF2 /* LoginViewController.swift in Sources */,
+				3971A5D522E9D87E00AB7F2C /* SchemesTableViewController.swift in Sources */,
 				393221E122E5E35B0024BCAE /* SchemeTableViewCell.swift in Sources */,
 				3932EDE822E2261800D72E88 /* SideBarViewController.swift in Sources */,
 				39D3971222DF854E004B7FF2 /* AppDelegate.swift in Sources */,

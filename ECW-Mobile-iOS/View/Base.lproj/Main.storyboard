@@ -116,7 +116,7 @@
         <!--Schemes Table View Controller-->
         <scene sceneID="uXV-4m-MXm">
             <objects>
-                <tableViewController id="8cc-TB-9Ck" customClass="SchemesTableViewController" sceneMemberID="viewController">
+                <tableViewController id="8cc-TB-9Ck" customClass="SchemesTableViewController" customModule="ECW_Mobile_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="1xi-0J-ouc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

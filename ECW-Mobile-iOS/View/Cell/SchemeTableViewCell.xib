@@ -12,59 +12,66 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="SchemeTableViewCell" customModule="ECW_Mobile_iOS" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SchemeTableViewCell" id="KGk-i7-Jjw" customClass="SchemeTableViewCell" customModule="ECW_Mobile_iOS" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ea-j9-i3X">
-                        <rect key="frame" x="15" y="12.5" width="290" height="74.5"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hm5-gd-gQk">
+                        <rect key="frame" x="15" y="15" width="290" height="69.5"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="67101538_445425629372230_8584359964967960576_n" translatesAutoresizingMaskIntoConstraints="NO" id="D01-id-P2D">
-                                <rect key="frame" x="0.0" y="0.0" width="74.5" height="74.5"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="67101538_445425629372230_8584359964967960576_n" translatesAutoresizingMaskIntoConstraints="NO" id="tet-uW-dap">
+                                <rect key="frame" x="0.0" y="10" width="50" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="D01-id-P2D" secondAttribute="height" id="xyd-fA-xGz"/>
+                                    <constraint firstAttribute="width" constant="50" id="a36-8u-NgD"/>
+                                    <constraint firstAttribute="height" constant="50" id="rZ5-CD-mOD"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BSCS Scholarship" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gx9-O4-A6r">
-                                <rect key="frame" x="74.5" y="7" width="143.5" height="21"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scholarships for BSCS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ftF-w6-uJe">
+                                <rect key="frame" x="50" y="5" width="240" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="2gI-3e-yWY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scholarships for BSCS students is available" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="slV-II-aaY">
-                                <rect key="frame" x="74.5" y="28" width="215.5" height="36"/>
-                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This scholarship is offfered for BSCS students of DCS. Application deadline is 9th Aug, 2019" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KH5-gu-Ndc">
+                                <rect key="frame" x="50" y="26" width="240" height="43.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="slV-II-aaY" firstAttribute="leading" secondItem="D01-id-P2D" secondAttribute="trailing" id="1Gb-cS-8kB"/>
-                            <constraint firstItem="Gx9-O4-A6r" firstAttribute="leading" secondItem="D01-id-P2D" secondAttribute="trailing" id="1uq-vD-DCg"/>
-                            <constraint firstItem="D01-id-P2D" firstAttribute="top" secondItem="1ea-j9-i3X" secondAttribute="top" id="2VU-IQ-Jzd"/>
-                            <constraint firstItem="D01-id-P2D" firstAttribute="leading" secondItem="1ea-j9-i3X" secondAttribute="leading" id="6Wp-Ht-3iq"/>
-                            <constraint firstItem="Gx9-O4-A6r" firstAttribute="top" secondItem="1ea-j9-i3X" secondAttribute="top" constant="7" id="KUb-1t-lOx"/>
-                            <constraint firstItem="slV-II-aaY" firstAttribute="top" secondItem="Gx9-O4-A6r" secondAttribute="bottom" id="VK9-t5-BJJ"/>
-                            <constraint firstAttribute="bottom" secondItem="D01-id-P2D" secondAttribute="bottom" id="erQ-Su-2eg"/>
-                            <constraint firstAttribute="trailing" secondItem="slV-II-aaY" secondAttribute="trailing" id="rHy-IV-Rta"/>
+                            <constraint firstItem="tet-uW-dap" firstAttribute="leading" secondItem="Hm5-gd-gQk" secondAttribute="leading" id="0xx-yD-x3X"/>
+                            <constraint firstAttribute="trailing" secondItem="KH5-gu-Ndc" secondAttribute="trailing" id="9kB-Fb-x15"/>
+                            <constraint firstAttribute="bottom" secondItem="KH5-gu-Ndc" secondAttribute="bottom" id="BSW-ej-4ZN"/>
+                            <constraint firstItem="KH5-gu-Ndc" firstAttribute="leading" secondItem="tet-uW-dap" secondAttribute="trailing" id="aCt-KD-1X2"/>
+                            <constraint firstItem="tet-uW-dap" firstAttribute="centerY" secondItem="Hm5-gd-gQk" secondAttribute="centerY" id="bNL-42-IIj"/>
+                            <constraint firstItem="KH5-gu-Ndc" firstAttribute="top" secondItem="ftF-w6-uJe" secondAttribute="bottom" id="gt9-IX-aNT"/>
+                            <constraint firstItem="ftF-w6-uJe" firstAttribute="top" secondItem="Hm5-gd-gQk" secondAttribute="top" constant="5" id="kGT-pB-hlI"/>
+                            <constraint firstAttribute="trailing" secondItem="ftF-w6-uJe" secondAttribute="trailing" id="mvx-sQ-lUq"/>
+                            <constraint firstItem="ftF-w6-uJe" firstAttribute="leading" secondItem="tet-uW-dap" secondAttribute="trailing" id="x5a-tA-q6z"/>
                         </constraints>
                     </view>
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="1ea-j9-i3X" secondAttribute="trailing" constant="15" id="4NM-Ip-PMs"/>
-                    <constraint firstItem="1ea-j9-i3X" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.75" id="D30-Xu-BnE"/>
-                    <constraint firstItem="1ea-j9-i3X" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="m3k-LX-Koi"/>
-                    <constraint firstItem="1ea-j9-i3X" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="rAJ-45-uLv"/>
+                    <constraint firstAttribute="bottom" secondItem="Hm5-gd-gQk" secondAttribute="bottom" constant="15" id="Eve-Id-A2L"/>
+                    <constraint firstItem="Hm5-gd-gQk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="Vb7-ze-W88"/>
+                    <constraint firstItem="Hm5-gd-gQk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="alg-Kh-qX4"/>
+                    <constraint firstAttribute="trailing" secondItem="Hm5-gd-gQk" secondAttribute="trailing" constant="15" id="mLA-XF-OOJ"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="details" destination="slV-II-aaY" id="oTN-GX-3vq"/>
-                <outlet property="title" destination="Gx9-O4-A6r" id="vAj-4W-APl"/>
+                <outlet property="details" destination="KH5-gu-Ndc" id="a2k-nf-I6w"/>
+                <outlet property="shadowView" destination="Hm5-gd-gQk" id="tqf-VQ-pfc"/>
+                <outlet property="title" destination="ftF-w6-uJe" id="h2d-WQ-BSQ"/>
             </connections>
             <point key="canvasLocation" x="-3.2000000000000002" y="86.35682158920541"/>
         </tableViewCell>
