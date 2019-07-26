@@ -22,7 +22,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hm5-gd-gQk">
                         <rect key="frame" x="15" y="15" width="290" height="69.5"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="67101538_445425629372230_8584359964967960576_n" translatesAutoresizingMaskIntoConstraints="NO" id="tet-uW-dap">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="67101538_445425629372230_8584359964967960576_n" translatesAutoresizingMaskIntoConstraints="NO" id="tet-uW-dap">
                                 <rect key="frame" x="0.0" y="10" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="a36-8u-NgD"/>
@@ -40,7 +40,7 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This scholarship is offfered for BSCS students of DCS. Application deadline is 9th Aug, 2019" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KH5-gu-Ndc">
                                 <rect key="frame" x="50" y="26" width="240" height="43.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>

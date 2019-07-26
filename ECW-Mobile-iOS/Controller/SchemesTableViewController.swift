@@ -44,7 +44,13 @@ class SchemesTableViewController: UITableViewController {
     
     func configureTableView(){
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 100
+       // tableView.estimatedRowHeight = 100
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        self.navigationController?.pushViewController(ApplicationFormViewController(), animated: true)
     }
     
 
