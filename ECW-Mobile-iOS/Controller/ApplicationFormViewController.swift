@@ -24,6 +24,15 @@ class ApplicationFormViewController: FormViewController {
                 $0.onChange { [unowned self] row in
                     print(row.value)
                 }
+                $0.add(rule: RuleRequired())
+                $0.validationOptions = .validatesOnChange
+                $0.add(rule: RuleRequired())
+                $0.validationOptions = .validatesOnChange
+                $0.cellUpdate { cell, row in
+                    if !row.isValid {
+                        cell.titleLabel?.textColor = .red
+                    }
+                }
         }
             <<< PushRow<String>() {
                 $0.title = "Gender"
@@ -69,6 +78,15 @@ class ApplicationFormViewController: FormViewController {
                 $0.onChange { [unowned self] row in
                     print(row.value)
                 }
+                $0.add(rule: RuleRequired())
+                $0.validationOptions = .validatesOnChange
+                $0.add(rule: RuleRequired())
+                $0.validationOptions = .validatesOnChange
+                $0.cellUpdate { cell, row in
+                    if !row.isValid {
+                        cell.titleLabel?.textColor = .red
+                    }
+                }
             }
             <<< TextRow() {
                 $0.title = "Street Adress 2"
@@ -79,9 +97,18 @@ class ApplicationFormViewController: FormViewController {
             }
             <<< TextRow() {
                 $0.title = "City"
-                $0.placeholder = "XXXXXXXXXXXXXXXX"
+                $0.placeholder = "Tap to Enter"
                 $0.onChange { [unowned self] row in
                     print(row.value)
+                }
+                $0.add(rule: RuleRequired())
+                $0.validationOptions = .validatesOnChange
+                $0.add(rule: RuleRequired())
+                $0.validationOptions = .validatesOnChange
+                $0.cellUpdate { cell, row in
+                    if !row.isValid {
+                        cell.titleLabel?.textColor = .red
+                    }
                 }
             }
             <<< TextRow() {
@@ -89,6 +116,15 @@ class ApplicationFormViewController: FormViewController {
                 $0.placeholder = "abc@xyz.com"
                 $0.onChange { [unowned self] row in
                     print(row.value)
+                }
+                $0.add(rule: RuleRequired())
+                $0.validationOptions = .validatesOnChange
+                $0.add(rule: RuleRequired())
+                $0.validationOptions = .validatesOnChange
+                $0.cellUpdate { cell, row in
+                    if !row.isValid {
+                        cell.titleLabel?.textColor = .red
+                    }
                 }
             }
             <<< TextRow() {
@@ -106,6 +142,15 @@ class ApplicationFormViewController: FormViewController {
                 $0.onChange { [unowned self] row in
                     print(row.value)
                 }
+                $0.add(rule: RuleRequired())
+                $0.validationOptions = .validatesOnChange
+                $0.add(rule: RuleRequired())
+                $0.validationOptions = .validatesOnChange
+                $0.cellUpdate { cell, row in
+                    if !row.isValid {
+                        cell.titleLabel?.textColor = .red
+                    }
+                }
             }
             <<< PushRow<String>() {
                 $0.title = "Gender"
@@ -116,22 +161,95 @@ class ApplicationFormViewController: FormViewController {
                 }
             }
             <<< TextRow() {
-                $0.title = "Cell #"
-                $0.placeholder = "+923XXXXXXXXX"
+                $0.title = "Relationship to You"
+                $0.placeholder = "Tap to Enter"
+                $0.onChange { [unowned self] row in
+                    print(row.value)
+                }
+                $0.add(rule: RuleRequired())
+                $0.validationOptions = .validatesOnChange
+                $0.add(rule: RuleRequired())
+                $0.validationOptions = .validatesOnChange
+                $0.cellUpdate { cell, row in
+                    if !row.isValid {
+                        cell.titleLabel?.textColor = .red
+                    }
+                }
+            }
+            <<< TextRow() {
+                $0.title = "Employment Status & Title"
+                $0.placeholder = "Tap to Enter"
+                $0.onChange { [unowned self] row in
+                    print(row.value)
+                }
+                $0.add(rule: RuleRequired())
+                $0.validationOptions = .validatesOnChange
+                $0.add(rule: RuleRequired())
+                $0.validationOptions = .validatesOnChange
+                $0.cellUpdate { cell, row in
+                    if !row.isValid {
+                        cell.titleLabel?.textColor = .red
+                    }
+                }
+            }
+            <<< TextRow() {
+                $0.title = "Street Adress 1"
+                $0.placeholder = "Tap to Enter"
+                $0.onChange { [unowned self] row in
+                    print(row.value)
+                }
+                $0.add(rule: RuleRequired())
+                $0.validationOptions = .validatesOnChange
+                $0.add(rule: RuleRequired())
+                $0.validationOptions = .validatesOnChange
+                $0.cellUpdate { cell, row in
+                    if !row.isValid {
+                        cell.titleLabel?.textColor = .red
+                    }
+                }
+            }
+            <<< TextRow() {
+                $0.title = "Street Adress 2"
+                $0.placeholder = "Tap to Enter"
                 $0.onChange { [unowned self] row in
                     print(row.value)
                 }
             }
             <<< TextRow() {
-                $0.title = "NIC"
-                $0.placeholder = "XXXXXXXXXXXXXXXX"
+                $0.title = "City"
+                $0.placeholder = "Tap to Enter"
                 $0.onChange { [unowned self] row in
                     print(row.value)
                 }
+                $0.add(rule: RuleRequired())
+                $0.validationOptions = .validatesOnChange
+                $0.add(rule: RuleRequired())
+                $0.validationOptions = .validatesOnChange
+                $0.cellUpdate { cell, row in
+                    if !row.isValid {
+                        cell.titleLabel?.textColor = .red
+                    }
+                }
             }
             <<< TextRow() {
-                $0.title = "Email"
-                $0.placeholder = "abc@xyz.com"
+                $0.title = "Country"
+                $0.placeholder = "Tap to Enter"
+                $0.onChange { [unowned self] row in
+                    print(row.value)
+                }
+                $0.add(rule: RuleRequired())
+                $0.validationOptions = .validatesOnChange
+                $0.add(rule: RuleRequired())
+                $0.validationOptions = .validatesOnChange
+                $0.cellUpdate { cell, row in
+                    if !row.isValid {
+                        cell.titleLabel?.textColor = .red
+                    }
+                }
+            }
+            <<< TextRow() {
+                $0.title = "Telephone #"
+                $0.placeholder = "Tap to Enter"
                 $0.onChange { [unowned self] row in
                     print(row.value)
                 }
@@ -143,7 +261,130 @@ class ApplicationFormViewController: FormViewController {
                     
                 }
         }
-        
+            
+        +++ Section("Academic Information")
+            <<< TextRow() {
+                $0.title = "University/ Institute/ School"
+                $0.placeholder = "Tap to Enter"
+                $0.onChange { [unowned self] row in
+                    print(row.value)
+                }
+                $0.add(rule: RuleRequired())
+                $0.validationOptions = .validatesOnChange
+                $0.add(rule: RuleRequired())
+                $0.validationOptions = .validatesOnChange
+                $0.cellUpdate { cell, row in
+                    if !row.isValid {
+                        cell.titleLabel?.textColor = .red
+                    }
+                }
+            }
+            <<< TextRow() {
+                $0.title = "Major in"
+                $0.placeholder = "Tap to Enter"
+                $0.onChange { [unowned self] row in
+                    print(row.value)
+                }
+                $0.add(rule: RuleRequired())
+                $0.validationOptions = .validatesOnChange
+                $0.add(rule: RuleRequired())
+                $0.validationOptions = .validatesOnChange
+                $0.cellUpdate { cell, row in
+                    if !row.isValid {
+                        cell.titleLabel?.textColor = .red
+                    }
+                }
+            }
+            <<< TextRow() {
+                $0.title = "Badge of"
+                $0.placeholder = "Click to Enter"
+                $0.onChange { [unowned self] row in
+                    print(row.value)
+                }
+                $0.add(rule: RuleRequired())
+                $0.validationOptions = .validatesOnChange
+                $0.add(rule: RuleRequired())
+                $0.validationOptions = .validatesOnChange
+                $0.cellUpdate { cell, row in
+                    if !row.isValid {
+                        cell.titleLabel?.textColor = .red
+                    }
+                }
+            }
+            <<< TextRow() {
+                $0.title = "Current Year / Semester"
+                $0.placeholder = "Tap to Enter"
+                $0.onChange { [unowned self] row in
+                    print(row.value)
+                }
+                $0.add(rule: RuleRequired())
+                $0.validationOptions = .validatesOnChange
+                $0.add(rule: RuleRequired())
+                $0.validationOptions = .validatesOnChange
+                $0.cellUpdate { cell, row in
+                    if !row.isValid {
+                        cell.titleLabel?.textColor = .red
+                    }
+                }
+            }
+            <<< DateRow(){
+                $0.title = "Program / Course Start Date"
+                $0.onChange {_ in
+                    
+                }
+            }
+            <<< DateRow(){
+                $0.title = "Program / Course End Date"
+                $0.onChange {_ in
+                    
+                }
+            }
+            <<< TextRow() {
+                $0.title = "CGPA / %"
+                $0.placeholder = "Tap to Enter"
+                $0.onChange { [unowned self] row in
+                    print(row.value)
+                }
+            }
+            <<< TextRow() {
+                $0.title = "Enrollment #"
+                $0.placeholder = "Tap to Enter"
+                $0.onChange { [unowned self] row in
+                    print(row.value)
+                }
+            }
+            <<< TextRow() {
+                $0.title = "Total Courses attended"
+                $0.placeholder = "Tap to Enter"
+                $0.onChange { [unowned self] row in
+                    print(row.value)
+                }
+                $0.add(rule: RuleRequired())
+                $0.validationOptions = .validatesOnChange
+                $0.add(rule: RuleRequired())
+                $0.validationOptions = .validatesOnChange
+                $0.cellUpdate { cell, row in
+                    if !row.isValid {
+                        cell.titleLabel?.textColor = .red
+                    }
+                }
+            }
+            <<< TextRow() {
+                $0.title = "Total courses in the program"
+                $0.placeholder = "Click to Enter"
+                $0.onChange { [unowned self] row in
+                    print(row.value)
+                }
+                $0.add(rule: RuleRequired())
+                $0.validationOptions = .validatesOnChange
+                $0.add(rule: RuleRequired())
+                $0.validationOptions = .validatesOnChange
+                $0.cellUpdate { cell, row in
+                    if !row.isValid {
+                        cell.titleLabel?.textColor = .red
+                    }
+                }
+            }
     }
     
     @objc func saveDidClick(){
