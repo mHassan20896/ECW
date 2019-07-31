@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0D4241104481C6F05E9C6259 /* Pods_ECW_Mobile_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E98E89A1FF9471E67951A7FA /* Pods_ECW_Mobile_iOSUITests.framework */; };
 		302A1ABF582028A6C4E447DA /* Pods_ECW_Mobile_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 816BBA12175512E197BC42A7 /* Pods_ECW_Mobile_iOS.framework */; };
+		39066F9A22F1EFBA002923C8 /* ApplicantsBio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39066F9922F1EFBA002923C8 /* ApplicantsBio.swift */; };
 		3908EEA322EB58C400CC508E /* ApplicationFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3908EEA222EB58C400CC508E /* ApplicationFormViewController.swift */; };
 		393221E122E5E35B0024BCAE /* SchemeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393221DF22E5E35B0024BCAE /* SchemeTableViewCell.swift */; };
 		393221E222E5E35B0024BCAE /* SchemeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 393221E022E5E35B0024BCAE /* SchemeTableViewCell.xib */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		39066F9922F1EFBA002923C8 /* ApplicantsBio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicantsBio.swift; sourceTree = "<group>"; };
 		3908EEA222EB58C400CC508E /* ApplicationFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationFormViewController.swift; sourceTree = "<group>"; };
 		393221DF22E5E35B0024BCAE /* SchemeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemeTableViewCell.swift; sourceTree = "<group>"; };
 		393221E022E5E35B0024BCAE /* SchemeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SchemeTableViewCell.xib; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			children = (
 				39B3CEDE22E095FE008F5DA7 /* User.swift */,
 				3971A5D622E9D89D00AB7F2C /* Scheme.swift */,
+				39066F9922F1EFBA002923C8 /* ApplicantsBio.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 				3971A5D722E9D89D00AB7F2C /* Scheme.swift in Sources */,
 				3908EEA322EB58C400CC508E /* ApplicationFormViewController.swift in Sources */,
 				39B3CEDF22E095FE008F5DA7 /* User.swift in Sources */,
+				39066F9A22F1EFBA002923C8 /* ApplicantsBio.swift in Sources */,
 				39D3971422DF854E004B7FF2 /* LoginViewController.swift in Sources */,
 				3971A5D522E9D87E00AB7F2C /* SchemesTableViewController.swift in Sources */,
 				393221E122E5E35B0024BCAE /* SchemeTableViewCell.swift in Sources */,
