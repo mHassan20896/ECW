@@ -22,10 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         
         SideMenuController.preferences.basic.statusBarBehavior = .hideOnMenu
-        
-        if let data = UserDefaults.standard.object(forKey: "ApplicantsData"), let value = try?  JSONDecoder().decode(ApplicantsBio.self, from: data as! Data) {
-            ApplicantsBio.sharedInstance = value
-        }
 
         return true
     }

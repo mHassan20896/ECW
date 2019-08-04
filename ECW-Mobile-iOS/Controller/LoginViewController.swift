@@ -29,12 +29,11 @@ class LoginViewController: UIViewController {
                 print(response!)
                 
                 if error != nil {
+                    SVProgressHUD.dismiss()
                     let alert = UIAlertController(title: "Error Occured", message: "Check your internet connection and try again", preferredStyle: .alert)
-                    alert.addAction((UIAlertAction(title: "OK", style: .default){ action in
-                        
+                    alert.addAction(UIAlertAction(title: "OK", style: .default){ action in
                         alert.dismiss(animated: true, completion: nil)
-                        
-                    }))
+                    })
                     self.present(alert, animated: true, completion: nil)
                 }
                 
@@ -47,6 +46,10 @@ class LoginViewController: UIViewController {
                     let profile = data["picture"] as! [String : Any]
                     let url = profile["data"] as! [String : Any]
                     User.sharedInstance.profilePicture = URL.init(string: url["url"] as! String)
+                    
+                    if let data = UserDefaults.standard.object(forKey: "ApplicantsData\(User.sharedInstance.email)"), let value = try?  JSONDecoder().decode(ApplicantsBio.self, from: data as! Data) {
+                        ApplicantsBio.sharedInstance = value
+                    }
                     
                     self.performSegue(withIdentifier: "goToHome", sender: self)
                 }
@@ -77,7 +80,10 @@ class LoginViewController: UIViewController {
             case .cancelled:
                 SVProgressHUD.dismiss()
             case .success(_, _, _):
-                    self.performSegue(withIdentifier: "goToHome", sender: self)
+                if let data = UserDefaults.standard.object(forKey: "ApplicantsData\(User.sharedInstance.email)"), let value = try?  JSONDecoder().decode(ApplicantsBio.self, from: data as! Data) {
+                    ApplicantsBio.sharedInstance = value
+                }
+                self.performSegue(withIdentifier: "goToHome", sender: self)
             }
         }
         

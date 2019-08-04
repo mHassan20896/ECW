@@ -9,6 +9,7 @@
 import Foundation
 
 class ApplicantsBio: Codable {
+    
     var name = ""
     var gender = ""
     var cell = ""
@@ -20,6 +21,7 @@ class ApplicantsBio: Codable {
     var country = ""
     var telephone = ""
     var DOB: Date? = nil
+    var contributionToIncome = ""
     
     //guardian information
     var GuardianName = ""
@@ -48,5 +50,19 @@ class ApplicantsBio: Codable {
     var courseAttended = ""
     var totalCourses = ""
     
+    //other attended organizations
+    var attendedOrgName: [String] = ["","",""]
+    var attendedOrgTo: [Date?] = [nil,nil,nil]
+    var attendedOrgFrom: [Date?] = [nil,nil,nil]
+    
+    //academic honors
+    var awardName: [String] = ["","",""]
+    var date: [Date?] = [nil,nil,nil]
+    var awardFor: [String] = ["","",""]
+    
     static var sharedInstance = ApplicantsBio()
+    
+    
 }
+
+
