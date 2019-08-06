@@ -50,7 +50,12 @@ class SchemesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        self.navigationController?.pushViewController(ApplicationFormViewController(), animated: true)
+        if UserDefaults.standard.integer(forKey: "count\(User.sharedInstance.email)") < 49 {
+            self.navigationController?.pushViewController(ApplicationFormViewController(), animated: true)
+        }
+        else {
+            self.navigationController?.pushViewController(WhereAboutsTableViewController(), animated: true)
+        }
     }
     
 

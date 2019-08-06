@@ -30,7 +30,7 @@
                                     <action selector="loginPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e0E-YR-JwR"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bigstock-blank-scholarship-application-15610232" translatesAutoresizingMaskIntoConstraints="NO" id="hIz-ie-xFN">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bigstock-blank-scholarship-application-15610232" translatesAutoresizingMaskIntoConstraints="NO" id="hIz-ie-xFN">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="607"/>
                             </imageView>
                         </subviews>
@@ -233,11 +233,27 @@
                     <connections>
                         <outlet property="profilePicture" destination="ED0-gU-dV0" id="fSA-Ca-fci"/>
                         <outlet property="userName" destination="XCT-JX-Ra4" id="j1h-R6-P2I"/>
+                        <segue destination="kGp-er-L4z" kind="show" identifier="goToUpdateMarksheet" id="Wp2-cT-dds"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3s6-Hl-JIM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="989.60000000000002" y="923.38830584707648"/>
+        </scene>
+        <!--Update Marksheet Table View Controller-->
+        <scene sceneID="T9r-wj-CR3">
+            <objects>
+                <viewController id="kGp-er-L4z" customClass="UpdateMarksheetTableViewController" customModule="ECW_Mobile_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3Oc-BZ-fij">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="ldd-xi-paf"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X3k-pP-aU0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2095" y="922"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="MIU-zR-ABp">

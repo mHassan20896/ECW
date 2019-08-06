@@ -47,8 +47,8 @@ class LoginViewController: UIViewController {
                     let url = profile["data"] as! [String : Any]
                     User.sharedInstance.profilePicture = URL.init(string: url["url"] as! String)
                     
-                    if let data = UserDefaults.standard.object(forKey: "ApplicantsData\(User.sharedInstance.email)"), let value = try?  JSONDecoder().decode(ApplicantsBio.self, from: data as! Data) {
-                        ApplicantsBio.sharedInstance = value
+                    if let data = UserDefaults.standard.object(forKey: "ApplicantsData\(User.sharedInstance.email)"), let value = try?  JSONDecoder().decode(ApplicantsData.self, from: data as! Data) {
+                        ApplicantsData.sharedInstance = value
                     }
                     
                     self.performSegue(withIdentifier: "goToHome", sender: self)
@@ -80,8 +80,8 @@ class LoginViewController: UIViewController {
             case .cancelled:
                 SVProgressHUD.dismiss()
             case .success(_, _, _):
-                if let data = UserDefaults.standard.object(forKey: "ApplicantsData\(User.sharedInstance.email)"), let value = try?  JSONDecoder().decode(ApplicantsBio.self, from: data as! Data) {
-                    ApplicantsBio.sharedInstance = value
+                if let data = UserDefaults.standard.object(forKey: "ApplicantsData\(User.sharedInstance.email)"), let value = try?  JSONDecoder().decode(ApplicantsData.self, from: data as! Data) {
+                    ApplicantsData.sharedInstance = value
                 }
                 self.performSegue(withIdentifier: "goToHome", sender: self)
             }

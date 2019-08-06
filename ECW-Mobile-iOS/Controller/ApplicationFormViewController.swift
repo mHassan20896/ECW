@@ -8,9 +8,10 @@
 
 import UIKit
 import Eureka
+import ImageRow
 
 class ApplicationFormViewController: FormViewController {
-    var count = UserDefaults.standard.integer(forKey: "count")
+    var count = UserDefaults.standard.integer(forKey: "count\(User.sharedInstance.email)")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,23 +20,39 @@ class ApplicationFormViewController: FormViewController {
         
         form
         +++ Section("Applicant Personal Information")
+            <<< ImageRow() {
+                $0.title = "Upload your image"
+                
+                if ApplicantsData.sharedInstance.yourImage != nil {
+                    $0.value = UIImage(data: ApplicantsData.sharedInstance.yourImage!)
+                }
+                
+                $0.sourceTypes = [.PhotoLibrary, .Camera, .SavedPhotosAlbum]
+                $0.clearAction = .yes(style: UIAlertAction.Style.destructive)
+                $0.onChange {
+                    let image: UIImage = $0.value!
+                    ApplicantsData.sharedInstance.yourImage = image.pngData()!
+
+                }
+            }
             <<< TextRow() {
                 $0.title = "Applicant Name"
                 $0.placeholder = "Enter Your Full Name"
-                $0.value = ApplicantsBio.sharedInstance.name
+                $0.value = ApplicantsData.sharedInstance.yourName
                 $0.onChange {
                     if let str = $0.value{
-                        if  ApplicantsBio.sharedInstance.name.count == 0 && str.count > 0 {
+                        if  ApplicantsData.sharedInstance.yourName.count == 0 && str.count > 0 {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    } else if (self.count-1) > 0 {
-                        self.changeButtonTitle()
-                        self.count -= 1 }
-                    if let _ = $0.value {
-                        ApplicantsBio.sharedInstance.name = $0.value!
                     }
-                    else{ ApplicantsBio.sharedInstance.name = ""}
+                    if let _ = $0.value {
+                        ApplicantsData.sharedInstance.yourName = $0.value!
+                    }
+                    else{
+                        self.changeButtonTitle()
+                        self.count -= 1
+                        ApplicantsData.sharedInstance.yourName = ""}
                 }
                 $0.add(rule: RuleRequired())
                 $0.validationOptions = .validatesOnChange
@@ -51,97 +68,102 @@ class ApplicationFormViewController: FormViewController {
                 $0.title = "Gender"
                 $0.value = "Not Selected"
                 $0.options = ["Male","Female"]
-                $0.value = ApplicantsBio.sharedInstance.gender
+                $0.value = ApplicantsData.sharedInstance.yourGender
                 $0.onChange{
                     if let str = $0.value{
-                        if  ApplicantsBio.sharedInstance.gender.count == 0 && str.count > 0 {
+                        if  ApplicantsData.sharedInstance.yourGender.count == 0 && str.count > 0 {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    } else if (self.count-1) > 0 {
-                        self.changeButtonTitle()
-                        self.count -= 1 }
-                    if let _ = $0.value {
-                        ApplicantsBio.sharedInstance.gender = $0.value!
                     }
-                    else{ ApplicantsBio.sharedInstance.gender = ""}
+                    if let _ = $0.value {
+                        ApplicantsData.sharedInstance.yourGender = $0.value!
+                    }
+                    else{
+                        self.changeButtonTitle()
+                        self.count -= 1
+                        ApplicantsData.sharedInstance.yourGender = ""}
                 }
         }
             <<< TextRow() {
                 $0.title = "Cell #"
                 $0.placeholder = "+923XXXXXXXXX"
-                $0.value = ApplicantsBio.sharedInstance.cell
+                $0.value = ApplicantsData.sharedInstance.yourCell
                 $0.onChange {
                     if let str = $0.value{
-                        if  ApplicantsBio.sharedInstance.cell.count == 0 && str.count > 0 {
+                        if  ApplicantsData.sharedInstance.yourCell.count == 0 && str.count > 0 {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    } else if (self.count-1) > 0 {
-                        self.changeButtonTitle()
-                        self.count -= 1 }
-                    if let _ = $0.value {
-                        ApplicantsBio.sharedInstance.cell = $0.value!
                     }
-                    else{ ApplicantsBio.sharedInstance.cell = ""}
+                    if let _ = $0.value {
+                        ApplicantsData.sharedInstance.yourCell = $0.value!
+                    }
+                    else{
+                        self.changeButtonTitle()
+                        self.count -= 1
+                        ApplicantsData.sharedInstance.yourCell = ""}
                 }
         }
             <<< TextRow() {
                 $0.title = "NIC"
                 $0.placeholder = "XXXXXXXXXXXXXXXX"
-                $0.value = ApplicantsBio.sharedInstance.NIC
+                $0.value = ApplicantsData.sharedInstance.yourNIC
                 $0.onChange {
                     if let str = $0.value{
-                        if  ApplicantsBio.sharedInstance.NIC.count == 0 && str.count > 0 {
+                        if  ApplicantsData.sharedInstance.yourNIC.count == 0 && str.count > 0 {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    } else if (self.count-1) > 0 {
-                        self.changeButtonTitle()
-                        self.count -= 1 }
-                    if let _ = $0.value {
-                        ApplicantsBio.sharedInstance.NIC = $0.value!
                     }
-                    else{ ApplicantsBio.sharedInstance.NIC = ""}
+                    if let _ = $0.value {
+                        ApplicantsData.sharedInstance.yourNIC = $0.value!
+                    }
+                    else{
+                        self.changeButtonTitle()
+                        self.count -= 1
+                        ApplicantsData.sharedInstance.yourNIC = ""}
                     
                 }
             }
             <<< TextRow() {
                 $0.title = "Email"
                 $0.placeholder = "abc@xyz.com"
-                $0.value = ApplicantsBio.sharedInstance.email
+                $0.value = ApplicantsData.sharedInstance.yourEmail
                 $0.onChange {
                     if let str = $0.value{
-                        if  ApplicantsBio.sharedInstance.email.count == 0 && str.count > 0 {
+                        if  ApplicantsData.sharedInstance.yourEmail.count == 0 && str.count > 0 {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    } else if (self.count-1) > 0 {
-                        self.changeButtonTitle()
-                        self.count -= 1 }
-                    if let _ = $0.value {
-                        ApplicantsBio.sharedInstance.email = $0.value!
                     }
-                    else{ ApplicantsBio.sharedInstance.email = ""}
+                    if let _ = $0.value {
+                        ApplicantsData.sharedInstance.yourEmail = $0.value!
+                    }
+                    else{
+                        self.changeButtonTitle()
+                        self.count -= 1
+                        ApplicantsData.sharedInstance.yourEmail = ""}
                 }
         }
             <<< DateRow(){
                 $0.title = "Date of Birth"
                 $0.maximumDate = Date()
-                $0.value = ApplicantsBio.sharedInstance.DOB
+                $0.value = ApplicantsData.sharedInstance.yourDOB
                 $0.onChange {
                     if let _ = $0.value{
-                        if  ApplicantsBio.sharedInstance.DOB == nil {
+                        if  ApplicantsData.sharedInstance.yourDOB == nil {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    } else if (self.count-1) > 0 {
-                        self.changeButtonTitle()
-                        self.count -= 1 }
-                    if let _ = $0.value {
-                        ApplicantsBio.sharedInstance.DOB = $0.value!
                     }
-                    else{ ApplicantsBio.sharedInstance.DOB = nil}
+                    if let _ = $0.value {
+                        ApplicantsData.sharedInstance.yourDOB = $0.value!
+                    }
+                    else{
+                        self.changeButtonTitle()
+                        self.count -= 1
+                        ApplicantsData.sharedInstance.yourDOB = nil}
                 }
         }
         
@@ -149,20 +171,21 @@ class ApplicationFormViewController: FormViewController {
             <<< TextRow() {
                 $0.title = "Street Adress 1"
                 $0.placeholder = "Click to Enter"
-                $0.value = ApplicantsBio.sharedInstance.streetAddress1
+                $0.value = ApplicantsData.sharedInstance.yourStreetAddress1
                 $0.onChange {
                     if let str = $0.value{
-                        if  ApplicantsBio.sharedInstance.streetAddress1.count == 0 && str.count > 0 {
+                        if  ApplicantsData.sharedInstance.yourStreetAddress1.count == 0 && str.count > 0 {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    } else if (self.count) > 0 {
-                        self.changeButtonTitle()
-                        self.count -= 1 }
-                    if let _ = $0.value {
-                        ApplicantsBio.sharedInstance.streetAddress1 = $0.value!
                     }
-                    else{ ApplicantsBio.sharedInstance.streetAddress1 = ""}
+                    if let _ = $0.value {
+                        ApplicantsData.sharedInstance.yourStreetAddress1 = $0.value!
+                    }
+                    else{
+                        self.changeButtonTitle()
+                        self.count -= 1
+                        ApplicantsData.sharedInstance.yourStreetAddress1 = ""}
                 }
                 $0.add(rule: RuleRequired())
                 $0.validationOptions = .validatesOnChange
@@ -177,39 +200,41 @@ class ApplicationFormViewController: FormViewController {
             <<< TextRow() {
                 $0.title = "Street Adress 2"
                 $0.placeholder = "Click to Enter"
-                $0.value = ApplicantsBio.sharedInstance.streetAddress2
+                $0.value = ApplicantsData.sharedInstance.yourStreetAddress2
                 $0.onChange {
                     if let str = $0.value{
-                        if  ApplicantsBio.sharedInstance.streetAddress2.count == 0 && str.count > 0 {
+                        if  ApplicantsData.sharedInstance.yourStreetAddress2.count == 0 && str.count > 0 {
                             self.changeButtonTitle()
                             self.count += 1
                         }
                     }
                     if let _ = $0.value {
-                        ApplicantsBio.sharedInstance.streetAddress2 = $0.value!
+                        ApplicantsData.sharedInstance.yourStreetAddress2 = $0.value!
                     }
                     else{
+                        self.changeButtonTitle()
                         self.count -= 1
-                        ApplicantsBio.sharedInstance.streetAddress2 = ""}
+                        ApplicantsData.sharedInstance.yourStreetAddress2 = ""}
                 }
             }
             <<< TextRow() {
                 $0.title = "City"
                 $0.placeholder = "Tap to Enter"
-                $0.value = ApplicantsBio.sharedInstance.city
+                $0.value = ApplicantsData.sharedInstance.yourCity
                 $0.onChange {
                     if let str = $0.value{
-                        if  ApplicantsBio.sharedInstance.city.count == 0 && str.count > 0 {
+                        if  ApplicantsData.sharedInstance.yourCity.count == 0 && str.count > 0 {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    } else if (self.count-1) > 0 {
-                        self.changeButtonTitle()
-                        self.count -= 1 }
-                    if let _ = $0.value {
-                        ApplicantsBio.sharedInstance.city = $0.value!
                     }
-                    else{ ApplicantsBio.sharedInstance.city = ""}
+                    if let _ = $0.value {
+                        ApplicantsData.sharedInstance.yourCity = $0.value!
+                    }
+                    else{
+                        self.changeButtonTitle()
+                        self.count -= 1
+                        ApplicantsData.sharedInstance.yourCity = ""}
                 }
                 $0.add(rule: RuleRequired())
                 $0.validationOptions = .validatesOnChange
@@ -224,20 +249,21 @@ class ApplicationFormViewController: FormViewController {
             <<< TextRow() {
                 $0.title = "Country"
                 $0.placeholder = "abc@xyz.com"
-                $0.value = ApplicantsBio.sharedInstance.country
+                $0.value = ApplicantsData.sharedInstance.yourzcountry
                 $0.onChange {
                     if let str = $0.value{
-                        if  ApplicantsBio.sharedInstance.country.count == 0 && str.count > 0 {
+                        if  ApplicantsData.sharedInstance.yourzcountry.count == 0 && str.count > 0 {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    } else if (self.count-1) > 0 {
-                        self.changeButtonTitle()
-                        self.count -= 1 }
-                    if let _ = $0.value {
-                        ApplicantsBio.sharedInstance.country = $0.value!
                     }
-                    else{ ApplicantsBio.sharedInstance.country = ""}
+                    if let _ = $0.value {
+                        ApplicantsData.sharedInstance.yourzcountry = $0.value!
+                    }
+                    else{
+                        self.changeButtonTitle()
+                        self.count -= 1
+                        ApplicantsData.sharedInstance.yourzcountry = ""}
                 }
                 $0.add(rule: RuleRequired())
                 $0.validationOptions = .validatesOnChange
@@ -252,20 +278,21 @@ class ApplicationFormViewController: FormViewController {
             <<< TextRow() {
                 $0.title = "Telephone #"
                 $0.placeholder = "Click to Enter"
-                $0.value = ApplicantsBio.sharedInstance.telephone
+                $0.value = ApplicantsData.sharedInstance.yourTelephone
                 $0.onChange {
                     if let str = $0.value{
-                        if  ApplicantsBio.sharedInstance.telephone.count == 0 && str.count > 0 {
+                        if  ApplicantsData.sharedInstance.yourTelephone.count == 0 && str.count > 0 {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    } else if (self.count-1) > 0 {
-                        self.changeButtonTitle()
-                        self.count -= 1 }
-                    if let _ = $0.value {
-                        ApplicantsBio.sharedInstance.telephone = $0.value!
                     }
-                    else{ ApplicantsBio.sharedInstance.telephone = ""}
+                    if let _ = $0.value {
+                        ApplicantsData.sharedInstance.yourTelephone = $0.value!
+                    }
+                    else{
+                        self.changeButtonTitle()
+                        self.count -= 1
+                        ApplicantsData.sharedInstance.yourTelephone = ""}
                 }
         }
         
@@ -273,20 +300,21 @@ class ApplicationFormViewController: FormViewController {
             <<< TextRow() {
                 $0.title = "Guardian / Father Name"
                 $0.placeholder = "Enter Guardian / Father Full Name"
-                $0.value = ApplicantsBio.sharedInstance.GuardianName
+                $0.value = ApplicantsData.sharedInstance.GuardianName
                 $0.onChange {
                     if let str = $0.value{
-                        if  ApplicantsBio.sharedInstance.GuardianName.count == 0 && str.count > 0 {
+                        if  ApplicantsData.sharedInstance.GuardianName.count == 0 && str.count > 0 {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    } else if (self.count-1) > 0 {
-                        self.changeButtonTitle()
-                        self.count -= 1 }
-                    if let _ = $0.value {
-                        ApplicantsBio.sharedInstance.GuardianName = $0.value!
                     }
-                    else{ ApplicantsBio.sharedInstance.GuardianName = ""}
+                    if let _ = $0.value {
+                        ApplicantsData.sharedInstance.GuardianName = $0.value!
+                    }
+                    else{
+                        self.changeButtonTitle()
+                        self.count -= 1
+                        ApplicantsData.sharedInstance.GuardianName = ""}
                 }
                 $0.add(rule: RuleRequired())
                 $0.validationOptions = .validatesOnChange
@@ -302,39 +330,41 @@ class ApplicationFormViewController: FormViewController {
                 $0.title = "Gender"
                 $0.value = "Not Selected"
                 $0.options = ["Male","Female"]
-                $0.value = ApplicantsBio.sharedInstance.guardianGender
+                $0.value = ApplicantsData.sharedInstance.guardianGender
                 $0.onChange {
                     if let str = $0.value{
-                        if  ApplicantsBio.sharedInstance.telephone.count == 0 && str.count > 0 {
+                        if  ApplicantsData.sharedInstance.guardianGender.count == 0 && str.count > 0 {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    } else if (self.count-1) > 0 {
-                        self.changeButtonTitle()
-                        self.count -= 1 }
-                    if let _ = $0.value {
-                        ApplicantsBio.sharedInstance.guardianGender = $0.value!
                     }
-                    else{ ApplicantsBio.sharedInstance.guardianGender = ""}
+                    if let _ = $0.value {
+                        ApplicantsData.sharedInstance.guardianGender = $0.value!
+                    }
+                    else{
+                        self.changeButtonTitle()
+                        self.count -= 1
+                        ApplicantsData.sharedInstance.guardianGender = ""}
                 }
             }
             <<< TextRow() {
                 $0.title = "Relationship to You"
                 $0.placeholder = "Tap to Enter"
-                $0.value = ApplicantsBio.sharedInstance.relationshipToYou
+                $0.value = ApplicantsData.sharedInstance.relationshipToYou
                 $0.onChange {
                     if let str = $0.value{
-                        if  ApplicantsBio.sharedInstance.relationshipToYou.count == 0 && str.count > 0 {
+                        if  ApplicantsData.sharedInstance.relationshipToYou.count == 0 && str.count > 0 {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    } else if (self.count-1) > 0 {
-                        self.changeButtonTitle()
-                        self.count -= 1 }
-                    if let _ = $0.value {
-                        ApplicantsBio.sharedInstance.relationshipToYou = $0.value!
                     }
-                    else{ ApplicantsBio.sharedInstance.relationshipToYou = ""}
+                    if let _ = $0.value {
+                        ApplicantsData.sharedInstance.relationshipToYou = $0.value!
+                    }
+                    else{
+                        self.changeButtonTitle()
+                        self.count -= 1
+                        ApplicantsData.sharedInstance.relationshipToYou = ""}
                 }
                 $0.add(rule: RuleRequired())
                 $0.validationOptions = .validatesOnChange
@@ -349,20 +379,21 @@ class ApplicationFormViewController: FormViewController {
             <<< TextRow() {
                 $0.title = "Employment Status & Title"
                 $0.placeholder = "Tap to Enter"
-                $0.value = ApplicantsBio.sharedInstance.employmentStatus
+                $0.value = ApplicantsData.sharedInstance.employmentStatus
                 $0.onChange {
                     if let str = $0.value{
-                        if  ApplicantsBio.sharedInstance.employmentStatus.count == 0 && str.count > 0 {
+                        if  ApplicantsData.sharedInstance.employmentStatus.count == 0 && str.count > 0 {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    } else if (self.count-1) > 0 {
-                        self.changeButtonTitle()
-                        self.count -= 1 }
-                    if let _ = $0.value {
-                        ApplicantsBio.sharedInstance.employmentStatus = $0.value!
                     }
-                    else{ ApplicantsBio.sharedInstance.employmentStatus = ""} }
+                    if let _ = $0.value {
+                        ApplicantsData.sharedInstance.employmentStatus = $0.value!
+                    }
+                    else{
+                        self.changeButtonTitle()
+                        self.count -= 1
+                        ApplicantsData.sharedInstance.employmentStatus = ""} }
                 $0.add(rule: RuleRequired())
                 $0.validationOptions = .validatesOnChange
                 $0.add(rule: RuleRequired())
@@ -376,20 +407,21 @@ class ApplicationFormViewController: FormViewController {
             <<< TextRow() {
                 $0.title = "Street Adress 1"
                 $0.placeholder = "Tap to Enter"
-                $0.value = ApplicantsBio.sharedInstance.guardianStreetAddress1
+                $0.value = ApplicantsData.sharedInstance.guardianStreetAddress1
                 $0.onChange {
                     if let str = $0.value{
-                        if  ApplicantsBio.sharedInstance.guardianStreetAddress1.count == 0 && str.count > 0 {
+                        if  ApplicantsData.sharedInstance.guardianStreetAddress1.count == 0 && str.count > 0 {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    } else if (self.count-1) > 0 {
-                        self.changeButtonTitle()
-                        self.count -= 1 }
-                    if let _ = $0.value {
-                        ApplicantsBio.sharedInstance.guardianStreetAddress1 = $0.value!
                     }
-                    else{ ApplicantsBio.sharedInstance.guardianStreetAddress1 = ""}
+                    if let _ = $0.value {
+                        ApplicantsData.sharedInstance.guardianStreetAddress1 = $0.value!
+                    }
+                    else{
+                        self.changeButtonTitle()
+                        self.count -= 1
+                        ApplicantsData.sharedInstance.guardianStreetAddress1 = ""}
                 }
                 $0.add(rule: RuleRequired())
                 $0.validationOptions = .validatesOnChange
@@ -404,38 +436,40 @@ class ApplicationFormViewController: FormViewController {
             <<< TextRow() {
                 $0.title = "Street Adress 2"
                 $0.placeholder = "Tap to Enter"
-                $0.value = ApplicantsBio.sharedInstance.guardianStreetAddress2
+                $0.value = ApplicantsData.sharedInstance.guardianStreetAddress2
                 $0.onChange {
                     if let str = $0.value{
-                        if  ApplicantsBio.sharedInstance.guardianStreetAddress2.count == 0 && str.count > 0 {
+                        if  ApplicantsData.sharedInstance.guardianStreetAddress2.count == 0 && str.count > 0 {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    } else if (self.count-1) > 0 {
-                        self.changeButtonTitle()
-                        self.count -= 1 }
-                    if let _ = $0.value {
-                        ApplicantsBio.sharedInstance.guardianStreetAddress2 = $0.value!
                     }
-                    else{ ApplicantsBio.sharedInstance.guardianStreetAddress2 = ""}}
+                    if let _ = $0.value {
+                        ApplicantsData.sharedInstance.guardianStreetAddress2 = $0.value!
+                    }
+                    else{
+                        self.changeButtonTitle()
+                        self.count -= 1
+                        ApplicantsData.sharedInstance.guardianStreetAddress2 = ""}}
             }
             <<< TextRow() {
                 $0.title = "City"
                 $0.placeholder = "Tap to Enter"
-                $0.value = ApplicantsBio.sharedInstance.guardianCity
+                $0.value = ApplicantsData.sharedInstance.guardianCity
                 $0.onChange {
                     if let str = $0.value{
-                        if  ApplicantsBio.sharedInstance.guardianCity.count == 0 && str.count > 0 {
+                        if  ApplicantsData.sharedInstance.guardianCity.count == 0 && str.count > 0 {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    } else if (self.count-1) > 0 {
-                        self.changeButtonTitle()
-                        self.count -= 1 }
-                    if let _ = $0.value {
-                        ApplicantsBio.sharedInstance.guardianCity = $0.value!
                     }
-                    else{ ApplicantsBio.sharedInstance.guardianCity = ""} }
+                    if let _ = $0.value {
+                        ApplicantsData.sharedInstance.guardianCity = $0.value!
+                    }
+                    else{
+                        self.changeButtonTitle()
+                        self.count -= 1
+                        ApplicantsData.sharedInstance.guardianCity = ""} }
                 $0.add(rule: RuleRequired())
                 $0.validationOptions = .validatesOnChange
                 $0.add(rule: RuleRequired())
@@ -449,20 +483,21 @@ class ApplicationFormViewController: FormViewController {
             <<< TextRow() {
                 $0.title = "Country"
                 $0.placeholder = "Tap to Enter"
-                $0.value = ApplicantsBio.sharedInstance.guardianCountry
+                $0.value = ApplicantsData.sharedInstance.guardianCountry
                 $0.onChange {
                     if let str = $0.value{
-                        if  ApplicantsBio.sharedInstance.guardianCountry.count == 0 && str.count > 0 {
+                        if  ApplicantsData.sharedInstance.guardianCountry.count == 0 && str.count > 0 {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    } else if (self.count-1) > 0 {
-                        self.changeButtonTitle()
-                        self.count -= 1 }
-                    if let _ = $0.value {
-                        ApplicantsBio.sharedInstance.guardianCountry = $0.value!
                     }
-                    else{ ApplicantsBio.sharedInstance.guardianCountry = ""} }
+                    if let _ = $0.value {
+                        ApplicantsData.sharedInstance.guardianCountry = $0.value!
+                    }
+                    else{
+                        self.changeButtonTitle()
+                        self.count -= 1
+                        ApplicantsData.sharedInstance.guardianCountry = ""} }
                 $0.add(rule: RuleRequired())
                 $0.validationOptions = .validatesOnChange
                 $0.add(rule: RuleRequired())
@@ -476,38 +511,40 @@ class ApplicationFormViewController: FormViewController {
             <<< TextRow() {
                 $0.title = "Telephone #"
                 $0.placeholder = "Tap to Enter"
-                $0.value = ApplicantsBio.sharedInstance.guardianTelephone
+                $0.value = ApplicantsData.sharedInstance.guardianTelephone
                 $0.onChange {
                     if let str = $0.value{
-                        if  ApplicantsBio.sharedInstance.guardianTelephone.count == 0 && str.count > 0 {
+                        if  ApplicantsData.sharedInstance.guardianTelephone.count == 0 && str.count > 0 {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    } else if (self.count-1) > 0 {
-                        self.changeButtonTitle()
-                        self.count -= 1 }
-                    if let _ = $0.value {
-                        ApplicantsBio.sharedInstance.guardianTelephone = $0.value!
                     }
-                    else{ ApplicantsBio.sharedInstance.guardianTelephone = ""}}
+                    if let _ = $0.value {
+                        ApplicantsData.sharedInstance.guardianTelephone = $0.value!
+                    }
+                    else{
+                        self.changeButtonTitle()
+                        self.count -= 1
+                        ApplicantsData.sharedInstance.guardianTelephone = ""}}
             }
             <<< DateRow(){
                 $0.title = "Date of Birth"
                 $0.maximumDate = Date()
-                $0.value = ApplicantsBio.sharedInstance.guardianDOB
+                $0.value = ApplicantsData.sharedInstance.guardianDOB
                 $0.onChange {
                     if let _ = $0.value{
-                        if  ApplicantsBio.sharedInstance.guardianDOB == nil {
+                        if  ApplicantsData.sharedInstance.guardianDOB == nil {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    } else if (self.count-1) > 0 {
-                        self.changeButtonTitle()
-                        self.count -= 1 }
-                    if let _ = $0.value {
-                        ApplicantsBio.sharedInstance.guardianDOB = $0.value!
                     }
-                    else{ ApplicantsBio.sharedInstance.guardianDOB = nil}
+                    if let _ = $0.value {
+                        ApplicantsData.sharedInstance.guardianDOB = $0.value!
+                    }
+                    else{
+                        self.changeButtonTitle()
+                        self.count -= 1
+                        ApplicantsData.sharedInstance.guardianDOB = nil}
                 }
         }
             
@@ -515,20 +552,21 @@ class ApplicationFormViewController: FormViewController {
             <<< TextRow() {
                 $0.title = "University/ Institute/ School"
                 $0.placeholder = "Tap to Enter"
-                $0.value = ApplicantsBio.sharedInstance.organization
+                $0.value = ApplicantsData.sharedInstance.organization
                 $0.onChange {
                     if let str = $0.value{
-                        if  ApplicantsBio.sharedInstance.organization.count == 0 && str.count > 0 {
+                        if  ApplicantsData.sharedInstance.organization.count == 0 && str.count > 0 {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    } else if (self.count-1) > 0 {
-                        self.changeButtonTitle()
-                        self.count -= 1 }
-                    if let _ = $0.value {
-                        ApplicantsBio.sharedInstance.organization = $0.value!
                     }
-                    else{ ApplicantsBio.sharedInstance.organization = ""} }
+                    if let _ = $0.value {
+                        ApplicantsData.sharedInstance.organization = $0.value!
+                    }
+                    else{
+                        self.changeButtonTitle()
+                        self.count -= 1
+                        ApplicantsData.sharedInstance.organization = ""} }
                 $0.add(rule: RuleRequired())
                 $0.validationOptions = .validatesOnChange
                 $0.add(rule: RuleRequired())
@@ -542,20 +580,21 @@ class ApplicationFormViewController: FormViewController {
             <<< TextRow() {
                 $0.title = "Major in"
                 $0.placeholder = "Tap to Enter"
-                $0.value = ApplicantsBio.sharedInstance.majorIn
+                $0.value = ApplicantsData.sharedInstance.majorIn
                 $0.onChange {
                     if let str = $0.value{
-                        if  ApplicantsBio.sharedInstance.majorIn.count == 0 && str.count > 0 {
+                        if  ApplicantsData.sharedInstance.majorIn.count == 0 && str.count > 0 {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    } else if (self.count-1) > 0 {
-                        self.changeButtonTitle()
-                        self.count -= 1 }
-                    if let _ = $0.value {
-                        ApplicantsBio.sharedInstance.majorIn = $0.value!
                     }
-                    else{ ApplicantsBio.sharedInstance.majorIn = ""}
+                    if let _ = $0.value {
+                        ApplicantsData.sharedInstance.majorIn = $0.value!
+                    }
+                    else{
+                        self.changeButtonTitle()
+                        self.count -= 1
+                        ApplicantsData.sharedInstance.majorIn = ""}
                 }
                 $0.add(rule: RuleRequired())
                 $0.validationOptions = .validatesOnChange
@@ -570,20 +609,21 @@ class ApplicationFormViewController: FormViewController {
             <<< TextRow() {
                 $0.title = "Badge of"
                 $0.placeholder = "Click to Enter"
-                $0.value = ApplicantsBio.sharedInstance.badgeOf
+                $0.value = ApplicantsData.sharedInstance.badgeOf
                 $0.onChange {
                     if let str = $0.value{
-                        if  ApplicantsBio.sharedInstance.badgeOf.count == 0 && str.count > 0 {
+                        if  ApplicantsData.sharedInstance.badgeOf.count == 0 && str.count > 0 {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    } else if (self.count-1) > 0 {
-                        self.changeButtonTitle()
-                        self.count -= 1 }
-                    if let _ = $0.value {
-                        ApplicantsBio.sharedInstance.badgeOf = $0.value!
                     }
-                    else{ ApplicantsBio.sharedInstance.badgeOf = ""}
+                    if let _ = $0.value {
+                        ApplicantsData.sharedInstance.badgeOf = $0.value!
+                    }
+                    else{
+                        self.changeButtonTitle()
+                        self.count -= 1
+                        ApplicantsData.sharedInstance.badgeOf = ""}
                 }
                 $0.add(rule: RuleRequired())
                 $0.validationOptions = .validatesOnChange
@@ -598,20 +638,21 @@ class ApplicationFormViewController: FormViewController {
             <<< TextRow() {
                 $0.title = "Current Year / Semester"
                 $0.placeholder = "Tap to Enter"
-                $0.value = ApplicantsBio.sharedInstance.currentSemester
+                $0.value = ApplicantsData.sharedInstance.currentSemester
                 $0.onChange {
                     if let str = $0.value{
-                        if  ApplicantsBio.sharedInstance.currentSemester.count == 0 && str.count > 0 {
+                        if  ApplicantsData.sharedInstance.currentSemester.count == 0 && str.count > 0 {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    } else if (self.count-1) > 0 {
-                        self.changeButtonTitle()
-                        self.count -= 1 }
-                    if let _ = $0.value {
-                        ApplicantsBio.sharedInstance.currentSemester = $0.value!
                     }
-                    else{ ApplicantsBio.sharedInstance.currentSemester = ""}
+                    if let _ = $0.value {
+                        ApplicantsData.sharedInstance.currentSemester = $0.value!
+                    }
+                    else{
+                        self.changeButtonTitle()
+                        self.count -= 1
+                        ApplicantsData.sharedInstance.currentSemester = ""}
                 }
                 $0.add(rule: RuleRequired())
                 $0.validationOptions = .validatesOnChange
@@ -625,95 +666,100 @@ class ApplicationFormViewController: FormViewController {
             }
             <<< DateRow(){
                 $0.title = "Program / Course Start Date"
-                $0.value = ApplicantsBio.sharedInstance.courseStartDate
+                $0.value = ApplicantsData.sharedInstance.courseStartDate
                 $0.onChange {
                     if let _ = $0.value{
-                        if  ApplicantsBio.sharedInstance.courseStartDate == nil {
+                        if  ApplicantsData.sharedInstance.courseStartDate == nil {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    } else if (self.count-1) > 0 {
-                        self.changeButtonTitle()
-                        self.count -= 1 }
-                    if let _ = $0.value {
-                        ApplicantsBio.sharedInstance.courseStartDate = $0.value!
                     }
-                    else{ ApplicantsBio.sharedInstance.courseStartDate = nil}
+                    if let _ = $0.value {
+                        ApplicantsData.sharedInstance.courseStartDate = $0.value!
+                    }
+                    else{
+                        self.changeButtonTitle()
+                        self.count -= 1
+                        ApplicantsData.sharedInstance.courseStartDate = nil}
                 }
             }
             <<< DateRow(){
                 $0.title = "Program / Course End Date"
-                $0.value = ApplicantsBio.sharedInstance.courseEndDate
+                $0.value = ApplicantsData.sharedInstance.courseEndDate
                 $0.onChange {
                     if let _ = $0.value{
-                    if  ApplicantsBio.sharedInstance.courseEndDate == nil {
+                    if  ApplicantsData.sharedInstance.courseEndDate == nil {
                         self.changeButtonTitle()
                         self.count += 1
                     }
-                } else if (self.count-1) > 0 {
-                    self.changeButtonTitle()
-                    self.count -= 1 }
+                }
                     if let _ = $0.value {
-                        ApplicantsBio.sharedInstance.courseEndDate = $0.value!
+                        ApplicantsData.sharedInstance.courseEndDate = $0.value!
                     }
-                    else{ ApplicantsBio.sharedInstance.courseEndDate = nil}
+                    else{
+                        self.changeButtonTitle()
+                        self.count -= 1
+                        ApplicantsData.sharedInstance.courseEndDate = nil}
                 }
             }
             <<< TextRow() {
                 $0.title = "CGPA / %"
                 $0.placeholder = "Tap to Enter"
-                $0.value = ApplicantsBio.sharedInstance.CGPA
+                $0.value = ApplicantsData.sharedInstance.CGPA
                 $0.onChange {
                     if let str = $0.value{
-                        if  ApplicantsBio.sharedInstance.CGPA.count == 0 && str.count > 0 {
+                        if  ApplicantsData.sharedInstance.CGPA.count == 0 && str.count > 0 {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    } else if (self.count-1) > 0 {
-                        self.changeButtonTitle()
-                        self.count -= 1 }
-                    if let _ = $0.value {
-                        ApplicantsBio.sharedInstance.CGPA = $0.value!
                     }
-                    else{ ApplicantsBio.sharedInstance.CGPA = ""}
+                    if let _ = $0.value {
+                        ApplicantsData.sharedInstance.CGPA = $0.value!
+                    }
+                    else{
+                        self.changeButtonTitle()
+                        self.count -= 1
+                        ApplicantsData.sharedInstance.CGPA = ""}
                 }
             }
             <<< TextRow() {
                 $0.title = "Enrollment #"
                 $0.placeholder = "Tap to Enter"
-                $0.value = ApplicantsBio.sharedInstance.enrolement
+                $0.value = ApplicantsData.sharedInstance.enrolement
                 $0.onChange {
                     if let str = $0.value{
-                        if  ApplicantsBio.sharedInstance.enrolement.count == 0 && str.count > 0 {
+                        if  ApplicantsData.sharedInstance.enrolement.count == 0 && str.count > 0 {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    } else if (self.count-1) > 0 {
-                        self.changeButtonTitle()
-                        self.count -= 1 }
-                    if let _ = $0.value {
-                        ApplicantsBio.sharedInstance.enrolement = $0.value!
                     }
-                    else{ ApplicantsBio.sharedInstance.enrolement = ""}
+                    if let _ = $0.value {
+                        ApplicantsData.sharedInstance.enrolement = $0.value!
+                    }
+                    else{
+                        self.changeButtonTitle()
+                        self.count -= 1
+                        ApplicantsData.sharedInstance.enrolement = ""}
                 }
             }
             <<< TextRow() {
                 $0.title = "Total Courses attended"
                 $0.placeholder = "Tap to Enter"
-                $0.value = ApplicantsBio.sharedInstance.courseAttended
+                $0.value = ApplicantsData.sharedInstance.courseAttended
                 $0.onChange {
                     if let str = $0.value{
-                        if  ApplicantsBio.sharedInstance.courseAttended.count == 0 && str.count > 0 {
+                        if  ApplicantsData.sharedInstance.courseAttended.count == 0 && str.count > 0 {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    } else if (self.count-1) > 0 {
-                        self.changeButtonTitle()
-                        self.count -= 1 }
-                    if let _ = $0.value {
-                        ApplicantsBio.sharedInstance.courseAttended = $0.value!
                     }
-                    else{ ApplicantsBio.sharedInstance.courseAttended = ""} }
+                    if let _ = $0.value {
+                        ApplicantsData.sharedInstance.courseAttended = $0.value!
+                    }
+                    else{
+                        self.changeButtonTitle()
+                        self.count -= 1
+                        ApplicantsData.sharedInstance.courseAttended = ""} }
                 $0.add(rule: RuleRequired())
                 $0.validationOptions = .validatesOnChange
                 $0.add(rule: RuleRequired())
@@ -727,20 +773,21 @@ class ApplicationFormViewController: FormViewController {
             <<< TextRow() {
                 $0.title = "Total courses in the program"
                 $0.placeholder = "Click to Enter"
-                $0.value = ApplicantsBio.sharedInstance.totalCourses
+                $0.value = ApplicantsData.sharedInstance.totalCourses
                 $0.onChange {
                     if let str = $0.value{
-                        if  ApplicantsBio.sharedInstance.totalCourses.count == 0 && str.count > 0 {
+                        if  ApplicantsData.sharedInstance.totalCourses.count == 0 && str.count > 0 {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    } else if (self.count-1) > 0 {
-                        self.changeButtonTitle()
-                        self.count -= 1 }
-                    if let _ = $0.value {
-                        ApplicantsBio.sharedInstance.totalCourses = $0.value!
                     }
-                    else{ ApplicantsBio.sharedInstance.totalCourses = ""}}
+                    if let _ = $0.value {
+                        ApplicantsData.sharedInstance.totalCourses = $0.value!
+                    }
+                    else{
+                        self.changeButtonTitle()
+                        self.count -= 1
+                        ApplicantsData.sharedInstance.totalCourses = ""}}
                 $0.add(rule: RuleRequired())
                 $0.validationOptions = .validatesOnChange
                 $0.add(rule: RuleRequired())
@@ -757,20 +804,21 @@ class ApplicationFormViewController: FormViewController {
             <<< TextRow() {
                 $0.title = "University/ Institute/ School"
                 $0.placeholder = "Tap to Enter"
-                $0.value = ApplicantsBio.sharedInstance.attendedOrgName[0]
+                $0.value = ApplicantsData.sharedInstance.attendedOrgName[0]
                 $0.onChange {
                     if let str = $0.value{
-                        if  ApplicantsBio.sharedInstance.attendedOrgName[0].count == 0 && str.count > 0 {
+                        if  ApplicantsData.sharedInstance.attendedOrgName[0].count == 0 && str.count > 0 {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    } else if (self.count-1) > 0 {
-                        self.changeButtonTitle()
-                        self.count -= 1 }
-                    if let _ = $0.value {
-                        ApplicantsBio.sharedInstance.attendedOrgName[0] = $0.value!
                     }
-                    else{ ApplicantsBio.sharedInstance.attendedOrgName[0] = ""} }
+                    if let _ = $0.value {
+                        ApplicantsData.sharedInstance.attendedOrgName[0] = $0.value!
+                    }
+                    else{
+                        self.changeButtonTitle()
+                        self.count -= 1
+                        ApplicantsData.sharedInstance.attendedOrgName[0] = ""} }
                 $0.add(rule: RuleRequired())
                 $0.validationOptions = .validatesOnChange
                 $0.add(rule: RuleRequired())
@@ -783,57 +831,60 @@ class ApplicationFormViewController: FormViewController {
             }
             <<< DateRow(){
                 $0.title = "Program / Course Start Date"
-                $0.value = ApplicantsBio.sharedInstance.attendedOrgFrom[0]
+                $0.value = ApplicantsData.sharedInstance.attendedOrgFrom[0]
                 $0.onChange {
                     if let _ = $0.value{
-                        if  ApplicantsBio.sharedInstance.attendedOrgFrom[0] == nil {
+                        if  ApplicantsData.sharedInstance.attendedOrgFrom[0] == nil {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    } else if (self.count-1) > 0 {
-                        self.changeButtonTitle()
-                        self.count -= 1 }
-                    if let _ = $0.value {
-                        ApplicantsBio.sharedInstance.attendedOrgFrom[0] = $0.value!
                     }
-                    else{ ApplicantsBio.sharedInstance.attendedOrgFrom[0] = nil}
+                    if let _ = $0.value {
+                        ApplicantsData.sharedInstance.attendedOrgFrom[0] = $0.value!
+                    }
+                    else{
+                        self.changeButtonTitle()
+                        self.count -= 1
+                        ApplicantsData.sharedInstance.attendedOrgFrom[0] = nil}
                 }
             }
             <<< DateRow(){
                 $0.title = "Program / Course End Date"
-                $0.value = ApplicantsBio.sharedInstance.attendedOrgTo[0]
+                $0.value = ApplicantsData.sharedInstance.attendedOrgTo[0]
                 $0.onChange {
                     if let _ = $0.value{
-                        if  ApplicantsBio.sharedInstance.attendedOrgTo[0] == nil {
+                        if  ApplicantsData.sharedInstance.attendedOrgTo[0] == nil {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    } else if (self.count-1) > 0 {
-                        self.changeButtonTitle()
-                        self.count -= 1 }
-                    if let _ = $0.value {
-                        ApplicantsBio.sharedInstance.attendedOrgTo[0] = $0.value!
                     }
-                    else{ ApplicantsBio.sharedInstance.attendedOrgTo[0] = nil} }
+                    if let _ = $0.value {
+                        ApplicantsData.sharedInstance.attendedOrgTo[0] = $0.value!
+                    }
+                    else{
+                        self.changeButtonTitle()
+                        self.count -= 1
+                        ApplicantsData.sharedInstance.attendedOrgTo[0] = nil} }
             }
             +++ Section("2")
                     <<< TextRow() {
                         $0.title = "University/ Institute/ School"
                         $0.placeholder = "Tap to Enter"
-                        $0.value = ApplicantsBio.sharedInstance.attendedOrgName[1]
+                        $0.value = ApplicantsData.sharedInstance.attendedOrgName[1]
                         $0.onChange {
                             if let str = $0.value{
-                                if  ApplicantsBio.sharedInstance.attendedOrgName[1].count == 0 && str.count > 0 {
+                                if  ApplicantsData.sharedInstance.attendedOrgName[1].count == 0 && str.count > 0 {
                                     self.changeButtonTitle()
                                     self.count += 1
                                 }
-                            } else if (self.count-1) > 0 {
-                                self.changeButtonTitle()
-                                self.count -= 1 }
-                            if let _ = $0.value {
-                                ApplicantsBio.sharedInstance.attendedOrgName[1] = $0.value!
                             }
-                            else{ ApplicantsBio.sharedInstance.attendedOrgName[1] = ""}
+                            if let _ = $0.value {
+                                ApplicantsData.sharedInstance.attendedOrgName[1] = $0.value!
+                            }
+                            else{
+                                self.changeButtonTitle()
+                                self.count -= 1
+                                ApplicantsData.sharedInstance.attendedOrgName[1] = ""}
                         }
                         $0.add(rule: RuleRequired())
                         $0.validationOptions = .validatesOnChange
@@ -847,28 +898,29 @@ class ApplicationFormViewController: FormViewController {
                     }
                     <<< DateRow(){
                         $0.title = "Program / Course Start Date"
-                        $0.value = ApplicantsBio.sharedInstance.attendedOrgFrom[1]
+                        $0.value = ApplicantsData.sharedInstance.attendedOrgFrom[1]
                         $0.onChange {
                             if let _ = $0.value{
-                                if  ApplicantsBio.sharedInstance.attendedOrgFrom[1] == nil {
+                                if  ApplicantsData.sharedInstance.attendedOrgFrom[1] == nil {
                                     self.changeButtonTitle()
                                     self.count += 1
                                 }
-                            } else if (self.count-1) > 0 {
-                                self.changeButtonTitle()
-                                self.count -= 1 }
-                            if let _ = $0.value {
-                                ApplicantsBio.sharedInstance.attendedOrgFrom[1] = $0.value!
                             }
-                            else{ ApplicantsBio.sharedInstance.attendedOrgFrom[1] = nil}
+                            if let _ = $0.value {
+                                ApplicantsData.sharedInstance.attendedOrgFrom[1] = $0.value!
+                            }
+                            else{
+                                self.changeButtonTitle()
+                                self.count -= 1
+                                ApplicantsData.sharedInstance.attendedOrgFrom[1] = nil}
                         }
                     }
                     <<< DateRow(){
                         $0.title = "Program / Course End Date"
-                        $0.value = ApplicantsBio.sharedInstance.attendedOrgTo[1]
+                        $0.value = ApplicantsData.sharedInstance.attendedOrgTo[1]
                         $0.onChange {
                             if let _ = $0.value{
-                                if  ApplicantsBio.sharedInstance.attendedOrgTo[1] == nil {
+                                if  ApplicantsData.sharedInstance.attendedOrgTo[1] == nil {
                                     self.changeButtonTitle()
                                     self.count += 1
                                 }
@@ -876,9 +928,9 @@ class ApplicationFormViewController: FormViewController {
                                 self.changeButtonTitle()
                                 self.count -= 1 }
                             if let _ = $0.value {
-                                ApplicantsBio.sharedInstance.attendedOrgTo[1] = $0.value!
+                                ApplicantsData.sharedInstance.attendedOrgTo[1] = $0.value!
                             }
-                            else{ ApplicantsBio.sharedInstance.attendedOrgTo[1] = nil}
+                            else{ ApplicantsData.sharedInstance.attendedOrgTo[1] = nil}
                             
                         }
                     }
@@ -886,20 +938,21 @@ class ApplicationFormViewController: FormViewController {
             <<< TextRow() {
                 $0.title = "University/ Institute/ School"
                 $0.placeholder = "Tap to Enter"
-                $0.value = ApplicantsBio.sharedInstance.attendedOrgName[2]
+                $0.value = ApplicantsData.sharedInstance.attendedOrgName[2]
                 $0.onChange {
                     if let str = $0.value{
-                        if  ApplicantsBio.sharedInstance.attendedOrgName[2].count == 0 && str.count > 0 {
+                        if  ApplicantsData.sharedInstance.attendedOrgName[2].count == 0 && str.count > 0 {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    } else if (self.count-1) > 0 {
-                        self.changeButtonTitle()
-                        self.count -= 1 }
-                    if let _ = $0.value {
-                        ApplicantsBio.sharedInstance.attendedOrgName[2] = $0.value!
                     }
-                    else{ ApplicantsBio.sharedInstance.attendedOrgName[2] = ""}
+                    if let _ = $0.value {
+                        ApplicantsData.sharedInstance.attendedOrgName[2] = $0.value!
+                    }
+                    else{
+                        self.changeButtonTitle()
+                        self.count -= 1
+                        ApplicantsData.sharedInstance.attendedOrgName[2] = ""}
                 }
                 $0.add(rule: RuleRequired())
                 $0.validationOptions = .validatesOnChange
@@ -913,38 +966,40 @@ class ApplicationFormViewController: FormViewController {
             }
             <<< DateRow(){
                 $0.title = "Program / Course Start Date"
-                $0.value = ApplicantsBio.sharedInstance.attendedOrgFrom[2]
+                $0.value = ApplicantsData.sharedInstance.attendedOrgFrom[2]
                 $0.onChange {
                     if let _ = $0.value{
-                        if  ApplicantsBio.sharedInstance.attendedOrgFrom[2] == nil {
+                        if  ApplicantsData.sharedInstance.attendedOrgFrom[2] == nil {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    } else if (self.count-1) > 0 {
-                        self.changeButtonTitle()
-                        self.count -= 1 }
-                    if let _ = $0.value {
-                        ApplicantsBio.sharedInstance.attendedOrgFrom[2] = $0.value!
                     }
-                    else{ ApplicantsBio.sharedInstance.attendedOrgFrom[2] = nil}
+                    if let _ = $0.value {
+                        ApplicantsData.sharedInstance.attendedOrgFrom[2] = $0.value!
+                    }
+                    else{
+                        self.changeButtonTitle()
+                        self.count -= 1
+                        ApplicantsData.sharedInstance.attendedOrgFrom[2] = nil}
                 }
             }
             <<< DateRow(){
                 $0.title = "Program / Course End Date"
-                $0.value = ApplicantsBio.sharedInstance.attendedOrgTo[2]
+                $0.value = ApplicantsData.sharedInstance.attendedOrgTo[2]
                 $0.onChange {
                     if let _ = $0.value{
-                        if  ApplicantsBio.sharedInstance.attendedOrgTo[2] == nil {
+                        if  ApplicantsData.sharedInstance.attendedOrgTo[2] == nil {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    } else if (self.count-1) > 0 {
-                        self.changeButtonTitle()
-                        self.count -= 1 }
-                    if let _ = $0.value {
-                        ApplicantsBio.sharedInstance.attendedOrgTo[2] = $0.value!
                     }
-                    else{ ApplicantsBio.sharedInstance.attendedOrgTo[2] = nil}
+                    if let _ = $0.value {
+                        ApplicantsData.sharedInstance.attendedOrgTo[2] = $0.value!
+                    }
+                    else{
+                        self.changeButtonTitle()
+                        self.count -= 1
+                        ApplicantsData.sharedInstance.attendedOrgTo[2] = nil}
                     
                 }
             }
@@ -954,20 +1009,21 @@ class ApplicationFormViewController: FormViewController {
             <<< TextRow() {
                 $0.title = "Name"
                 $0.placeholder = "Tap to Enter"
-                $0.value = ApplicantsBio.sharedInstance.awardName[0]
+                $0.value = ApplicantsData.sharedInstance.awardName[0]
                 $0.onChange {
                     if let str = $0.value{
-                        if  ApplicantsBio.sharedInstance.awardName[0].count == 0 && str.count > 0 {
+                        if  ApplicantsData.sharedInstance.awardName[0].count == 0 && str.count > 0 {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    } else if (self.count-1) > 0 {
-                        self.changeButtonTitle()
-                        self.count -= 1 }
-                    if let _ = $0.value {
-                        ApplicantsBio.sharedInstance.awardName[0] = $0.value!
                     }
-                    else{ ApplicantsBio.sharedInstance.awardName[0] = ""}
+                    if let _ = $0.value {
+                        ApplicantsData.sharedInstance.awardName[0] = $0.value!
+                    }
+                    else{
+                        self.changeButtonTitle()
+                        self.count -= 1
+                        ApplicantsData.sharedInstance.awardName[0] = ""}
                 }
                 $0.add(rule: RuleRequired())
                 $0.validationOptions = .validatesOnChange
@@ -981,55 +1037,60 @@ class ApplicationFormViewController: FormViewController {
             }
             <<< DateRow(){
                 $0.title = "Award date"
-                $0.value = ApplicantsBio.sharedInstance.date[0]
+                $0.value = ApplicantsData.sharedInstance.date[0]
                 $0.onChange {
                     if let _ = $0.value{
-                        if  ApplicantsBio.sharedInstance.date[0] == nil {
+                        if  ApplicantsData.sharedInstance.date[0] == nil {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    } else if (self.count-1) > 0 { self.count -= 1 }
-                    if let _ = $0.value {
-                        ApplicantsBio.sharedInstance.date[0] = $0.value!
                     }
-                    else{ ApplicantsBio.sharedInstance.date[0] = nil }
+                    if let _ = $0.value {
+                        ApplicantsData.sharedInstance.date[0] = $0.value!
+                    }
+                    else{
+                        self.changeButtonTitle()
+                        self.count -= 1
+                        ApplicantsData.sharedInstance.date[0] = nil }
                 }
             }
             <<< TextRow(){
                 $0.title = "Awarded For"
-                $0.value = ApplicantsBio.sharedInstance.awardFor[0]
+                $0.value = ApplicantsData.sharedInstance.awardFor[0]
                 $0.onChange {
                     if let str = $0.value{
-                        if  ApplicantsBio.sharedInstance.awardFor[0].count == 0 && str.count > 0 {
+                        if  ApplicantsData.sharedInstance.awardFor[0].count == 0 && str.count > 0 {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    } else if (self.count-1) > 0 {
-                        self.changeButtonTitle()
-                        self.count -= 1 }
-                    if let _ = $0.value {
-                        ApplicantsBio.sharedInstance.awardFor[0] = $0.value!
                     }
-                    else{ ApplicantsBio.sharedInstance.awardFor[0] = ""} }
+                    if let _ = $0.value {
+                        ApplicantsData.sharedInstance.awardFor[0] = $0.value!
+                    }
+                    else{
+                        self.changeButtonTitle()
+                        self.count -= 1
+                        ApplicantsData.sharedInstance.awardFor[0] = ""} }
             }
             +++ Section("2")
             <<< TextRow() {
                 $0.title = "Name"
                 $0.placeholder = "Tap to Enter"
-                $0.value = ApplicantsBio.sharedInstance.awardName[1]
+                $0.value = ApplicantsData.sharedInstance.awardName[1]
                 $0.onChange {
                     if let str = $0.value{
-                        if  ApplicantsBio.sharedInstance.awardName[1].count == 0 && str.count > 0 {
+                        if  ApplicantsData.sharedInstance.awardName[1].count == 0 && str.count > 0 {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    } else if (self.count-1) > 0 {
-                        self.changeButtonTitle()
-                        self.count -= 1 }
-                    if let _ = $0.value {
-                        ApplicantsBio.sharedInstance.awardName[1] = $0.value!
                     }
-                    else{ ApplicantsBio.sharedInstance.awardName[1] = ""}
+                    if let _ = $0.value {
+                        ApplicantsData.sharedInstance.awardName[1] = $0.value!
+                    }
+                    else{
+                        self.changeButtonTitle()
+                        self.count -= 1
+                        ApplicantsData.sharedInstance.awardName[1] = ""}
                 }
                 $0.add(rule: RuleRequired())
                 $0.validationOptions = .validatesOnChange
@@ -1043,56 +1104,61 @@ class ApplicationFormViewController: FormViewController {
             }
             <<< DateRow(){
                 $0.title = "Award date"
-                $0.value = ApplicantsBio.sharedInstance.date[1]
+                $0.value = ApplicantsData.sharedInstance.date[1]
                 $0.onChange {
                     if let _ = $0.value{
-                        if  ApplicantsBio.sharedInstance.date[1] == nil {
+                        if  ApplicantsData.sharedInstance.date[1] == nil {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    } else if (self.count-1) > 0 { self.count -= 1 }
-                    if let _ = $0.value {
-                        ApplicantsBio.sharedInstance.date[1] = $0.value!
                     }
-                    else{ ApplicantsBio.sharedInstance.date[1] = nil }
+                    if let _ = $0.value {
+                        ApplicantsData.sharedInstance.date[1] = $0.value!
+                    }
+                    else{
+                        self.changeButtonTitle()
+                        self.count -= 1
+                        ApplicantsData.sharedInstance.date[1] = nil }
                 }
             }
             <<< TextRow(){
                 $0.title = "Awarded For"
-                $0.value = ApplicantsBio.sharedInstance.awardFor[1]
+                $0.value = ApplicantsData.sharedInstance.awardFor[1]
                 $0.onChange {
                     if let str = $0.value{
-                        if  ApplicantsBio.sharedInstance.awardFor[1].count == 0 && str.count > 0 {
+                        if  ApplicantsData.sharedInstance.awardFor[1].count == 0 && str.count > 0 {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    } else if (self.count-1) > 0 {
-                        self.changeButtonTitle()
-                        self.count -= 1 }
-                    if let _ = $0.value {
-                        ApplicantsBio.sharedInstance.awardFor[1] = $0.value!
                     }
-                    else{ ApplicantsBio.sharedInstance.awardFor[1] = ""} }
+                    if let _ = $0.value {
+                        ApplicantsData.sharedInstance.awardFor[1] = $0.value!
+                    }
+                    else{
+                        self.changeButtonTitle()
+                        self.count -= 1
+                        ApplicantsData.sharedInstance.awardFor[1] = ""} }
             }
             
             +++ Section("3")
             <<< TextRow() {
                 $0.title = "Name"
                 $0.placeholder = "Tap to Enter"
-                $0.value = ApplicantsBio.sharedInstance.awardName[2]
+                $0.value = ApplicantsData.sharedInstance.awardName[2]
                 $0.onChange {
                     if let str = $0.value{
-                        if  ApplicantsBio.sharedInstance.awardName[2].count == 0 && str.count > 0 {
+                        if  ApplicantsData.sharedInstance.awardName[2].count == 0 && str.count > 0 {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    } else if (self.count-1) > 0 {
-                        self.changeButtonTitle()
-                        self.count -= 1 }
-                    if let _ = $0.value {
-                        ApplicantsBio.sharedInstance.awardName[2] = $0.value!
                     }
-                    else{ ApplicantsBio.sharedInstance.awardName[2] = ""}
+                    if let _ = $0.value {
+                        ApplicantsData.sharedInstance.awardName[2] = $0.value!
+                    }
+                    else{
+                        self.changeButtonTitle()
+                        self.count -= 1
+                        ApplicantsData.sharedInstance.awardName[2] = ""}
                 }
                 $0.add(rule: RuleRequired())
                 $0.validationOptions = .validatesOnChange
@@ -1106,52 +1172,62 @@ class ApplicationFormViewController: FormViewController {
             }
             <<< DateRow(){
                 $0.title = "Award date"
-                $0.value = ApplicantsBio.sharedInstance.date[2]
+                $0.value = ApplicantsData.sharedInstance.date[2]
                 $0.onChange {
                     if let _ = $0.value{
-                        if  ApplicantsBio.sharedInstance.date[2] == nil {
+                        if  ApplicantsData.sharedInstance.date[2] == nil {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    } else if (self.count-1) > 0 { self.count -= 1 }
-                    if let _ = $0.value {
-                        ApplicantsBio.sharedInstance.date[2] = $0.value!
                     }
-                    else{ ApplicantsBio.sharedInstance.date[2] = nil }
+                    if let _ = $0.value {
+                        ApplicantsData.sharedInstance.date[2] = $0.value!
+                    }
+                    else{
+                        self.changeButtonTitle()
+                        self.count -= 1
+                        ApplicantsData.sharedInstance.date[2] = nil }
                 }
             }
             <<< TextRow(){
                 $0.title = "Awarded For"
-                $0.value = ApplicantsBio.sharedInstance.awardFor[2]
+                $0.value = ApplicantsData.sharedInstance.awardFor[2]
                 $0.onChange {
                     if let str = $0.value{
-                        if  ApplicantsBio.sharedInstance.awardFor[2].count == 0 && str.count > 0 {
+                        if  ApplicantsData.sharedInstance.awardFor[2].count == 0 && str.count > 0 {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    } else if (self.count-1) > 0 {
-                        self.changeButtonTitle()
-                        self.count -= 1 }
-                    if let _ = $0.value {
-                        ApplicantsBio.sharedInstance.awardFor[2] = $0.value!
                     }
-                    else{ ApplicantsBio.sharedInstance.awardFor[2] = ""} }
+                    if let _ = $0.value {
+                        ApplicantsData.sharedInstance.awardFor[2] = $0.value!
+                    }
+                    else{
+                        self.changeButtonTitle()
+                        self.count -= 1
+                        ApplicantsData.sharedInstance.awardFor[2] = ""} }
         }
     }
     
     @objc func saveDidClick(){
         do {
-            let value = try JSONEncoder().encode(ApplicantsBio.sharedInstance)
+            let value = try JSONEncoder().encode(ApplicantsData.sharedInstance)
             UserDefaults.standard.set(value, forKey: "ApplicantsData\(User.sharedInstance.email)")
+            UserDefaults.standard.set(self.count, forKey: "count\(User.sharedInstance.email)")
         }
         catch { print(error) }
+        
+        if  self.navigationItem.rightBarButtonItem?.title == "Next" {
+            let viewController = WhereAboutsTableViewController()
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
     }
     
     func changeButtonTitle(){
-        if count == 39 {
+        if count == 48 {
             self.navigationItem.rightBarButtonItem?.title = "Next"
             self.loadViewIfNeeded()
-        } else if count == 40 {
+        } else if count == 49 {
             self.navigationItem.rightBarButtonItem?.title = "Save"
             self.loadViewIfNeeded()
         }

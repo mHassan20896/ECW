@@ -14,6 +14,7 @@ pod 'SVProgressHUD'
 pod 'SideMenuSwift'
 pod 'AlamofireImage'
 pod 'Eureka' , '4.3.1'
+pod 'ImageRow'
 
   # Pods for ECW-Mobile-iOS
 
