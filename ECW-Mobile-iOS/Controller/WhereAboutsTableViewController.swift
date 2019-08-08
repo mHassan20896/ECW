@@ -16,6 +16,8 @@ class WhereAboutsTableViewController: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.navigationController?.navigationBar.barStyle = .black
+        
         self.navigationController?.title = "Family Whereabouts Form"
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: "saveDidClick")
         

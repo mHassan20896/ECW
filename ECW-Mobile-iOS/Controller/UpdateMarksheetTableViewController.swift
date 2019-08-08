@@ -18,6 +18,8 @@ class UpdateMarksheetTableViewController: FormViewController{
         
         self.navigationItem.rightBarButtonItem?.title = "Update"
         
+        self.navigationController?.navigationBar.barStyle = .black
+        
         form
             +++ Section()
             <<< TextRow() {
@@ -135,4 +137,11 @@ class UpdateMarksheetTableViewController: FormViewController{
         
     }
 
+    @IBAction func didPressBack(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func didPressSubmit(_ sender: Any) {
+        
+    }
 }

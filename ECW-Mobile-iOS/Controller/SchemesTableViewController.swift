@@ -14,6 +14,8 @@ class SchemesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.navigationBar.barStyle = .black
+        
         SVProgressHUD.dismiss()
 
         tableView.register(UINib(nibName: "SchemeTableViewCell", bundle: nil), forCellReuseIdentifier: "SchemeTableViewCell")
@@ -25,8 +27,6 @@ class SchemesTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
-   
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
@@ -103,5 +103,6 @@ class SchemesTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
 
 }

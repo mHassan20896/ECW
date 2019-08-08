@@ -13,7 +13,11 @@ import Alamofire
 import SVProgressHUD
 import FBSDKCoreKit
 
-class HomeViewController: UIViewController {
+protocol UpdateMarks {
+    func showUpdateMarksForm()
+}
+
+class HomeViewController: UIViewController, UpdateMarks {
 
     @IBOutlet weak var seeScholarshipButton: UIButton!
     @IBOutlet weak var selectionStatus: UILabel!
@@ -23,11 +27,14 @@ class HomeViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
+        self.navigationController?.navigationBar.barStyle = .black
+        
         seeScholarshipButton.layer.cornerRadius = 25
         
         SVProgressHUD.dismiss()
     }
     
+
     @IBAction func sideBarButtonPressed(_ sender: Any) {
             
         self.sideMenuController?.revealMenu()
@@ -57,5 +64,9 @@ class HomeViewController: UIViewController {
 //        }
     }
     
+    func showUpdateMarksForm() {
+        let VC = UpdateMarksheetTableViewController()
+        self.navigationController?.pushViewController(VC, animated: true)
+    }
     
 }

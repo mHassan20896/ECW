@@ -32,9 +32,10 @@ class SideBarViewController: UIViewController {
         }
     }
     
-    
     @IBAction func updateYourMarksPressed(_ sender: Any) {
         self.sideMenuController?.hideMenu()
+        self.performSegue(withIdentifier: "goToUpdateMarks", sender: self)
+        
     }
     
     

@@ -59,11 +59,11 @@
             <objects>
                 <viewController id="i1X-zt-1Pb" customClass="HomeViewController" customModule="ECW_Mobile_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bVJ-np-kch">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="RVZ-uV-E4Y">
-                                <rect key="frame" x="47" y="292.5" width="281" height="82.5"/>
+                                <rect key="frame" x="47" y="260.5" width="281" height="82.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sTX-1b-x7c">
                                         <rect key="frame" x="0.0" y="0.0" width="281" height="53"/>
@@ -96,6 +96,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Tbu-38-nhW"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Home" id="hES-jg-MdB">
                         <barButtonItem key="leftBarButtonItem" image="icons8-menu-50" id="3NM-6Z-627">
                             <connections>
@@ -117,7 +118,7 @@
         <scene sceneID="uXV-4m-MXm">
             <objects>
                 <tableViewController id="8cc-TB-9Ck" customClass="SchemesTableViewController" customModule="ECW_Mobile_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="1xi-0J-ouc">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="1xi-0J-ouc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -163,7 +164,7 @@
         <!--Side Bar View Controller-->
         <scene sceneID="eiP-Uq-mp3">
             <objects>
-                <viewController id="Q2e-a2-iyI" customClass="SideBarViewController" customModule="ECW_Mobile_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController wantsFullScreenLayout="YES" id="Q2e-a2-iyI" customClass="SideBarViewController" customModule="ECW_Mobile_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LC1-cE-ZIX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -233,14 +234,14 @@
                     <connections>
                         <outlet property="profilePicture" destination="ED0-gU-dV0" id="fSA-Ca-fci"/>
                         <outlet property="userName" destination="XCT-JX-Ra4" id="j1h-R6-P2I"/>
-                        <segue destination="kGp-er-L4z" kind="show" identifier="goToUpdateMarksheet" id="Wp2-cT-dds"/>
+                        <segue destination="YE0-sg-NGy" kind="show" identifier="goToUpdateMarks" id="W2c-TJ-fBs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3s6-Hl-JIM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="989.60000000000002" y="923.38830584707648"/>
         </scene>
-        <!--Update Marksheet Table View Controller-->
+        <!--Update Marksheet-->
         <scene sceneID="T9r-wj-CR3">
             <objects>
                 <viewController id="kGp-er-L4z" customClass="UpdateMarksheetTableViewController" customModule="ECW_Mobile_iOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -250,10 +251,22 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="ldd-xi-paf"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Update Marksheet" id="YHy-qk-zS4">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="O2l-k1-jhz">
+                            <connections>
+                                <action selector="didPressBack:" destination="kGp-er-L4z" id="9PL-j3-9H7"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="RhI-fK-Fgb">
+                            <connections>
+                                <action selector="didPressSubmit:" destination="kGp-er-L4z" id="6y2-bP-TPP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X3k-pP-aU0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2095" y="922"/>
+            <point key="canvasLocation" x="3032.8000000000002" y="921.58920539730138"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="MIU-zR-ABp">
@@ -263,6 +276,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rhj-Dw-rdW">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.0" green="0.47085785865783691" blue="0.98548346757888794" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <userDefinedRuntimeAttributes>
@@ -276,10 +293,30 @@
             </objects>
             <point key="canvasLocation" x="1858" y="116"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="8K7-Tb-2RD">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YE0-sg-NGy" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wff-q7-A3K">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.0" green="0.47085785870000002" blue="0.98548346760000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="kGp-er-L4z" kind="relationship" relationship="rootViewController" id="L0n-rk-LJE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YH1-Jq-GzI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2093.5999999999999" y="921.58920539730138"/>
+        </scene>
     </scenes>
     <resources>
         <image name="bigstock-blank-scholarship-application-15610232" width="900" height="600"/>
         <image name="icons8-facebook-f-24" width="24" height="24"/>
         <image name="icons8-menu-50" width="50" height="50"/>
     </resources>
+    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>
