@@ -31,9 +31,7 @@ class WhereAboutsTableViewController: FormViewController {
                         self.changeButtonTitle()
                         self.count += 1
                     }
-                }
-                if let _ = $0.value {
-                    ApplicantsData.sharedInstance.yourContribution = $0.value!
+                    ApplicantsData.sharedInstance.yourContribution = str
                 }
                 else{
                     self.changeButtonTitle()
@@ -54,14 +52,12 @@ class WhereAboutsTableViewController: FormViewController {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    }
-                    if let _ = $0.value {
-                        ApplicantsData.sharedInstance.yourCell = $0.value!
+                        ApplicantsData.sharedInstance.fathersName = str
                     }
                     else{
                         self.changeButtonTitle()
                         self.count -= 1
-                        ApplicantsData.sharedInstance.yourCell = ""
+                        ApplicantsData.sharedInstance.fathersName = ""
                     }
                 }
         }
@@ -75,9 +71,7 @@ class WhereAboutsTableViewController: FormViewController {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    }
-                    if let _ = $0.value {
-                        ApplicantsData.sharedInstance.fathersOccupation = $0.value!
+                        ApplicantsData.sharedInstance.fathersOccupation = str
                     }
                     else{
                         self.changeButtonTitle()
@@ -96,16 +90,13 @@ class WhereAboutsTableViewController: FormViewController {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    }
-                    if let _ = $0.value {
-                        ApplicantsData.sharedInstance.fathersContribution = $0.value!
+                        ApplicantsData.sharedInstance.fathersContribution = str
                     }
                     else{
                         self.changeButtonTitle()
                         self.count -= 1
                         ApplicantsData.sharedInstance.fathersContribution = ""
-                    }
-                }
+                    }                }
         }
             <<< TextRow() {
                 $0.title = "Email Address"
@@ -117,9 +108,7 @@ class WhereAboutsTableViewController: FormViewController {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    }
-                    if let _ = $0.value {
-                        ApplicantsData.sharedInstance.fathersEmail = $0.value!
+                        ApplicantsData.sharedInstance.fathersEmail = str
                     }
                     else{
                         self.changeButtonTitle()
@@ -138,9 +127,7 @@ class WhereAboutsTableViewController: FormViewController {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    }
-                    if let _ = $0.value {
-                        ApplicantsData.sharedInstance.fathersCellNo = $0.value!
+                        ApplicantsData.sharedInstance.fathersCellNo = str
                     }
                     else{
                         self.changeButtonTitle()
@@ -160,9 +147,7 @@ class WhereAboutsTableViewController: FormViewController {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    }
-                    if let _ = $0.value {
-                        ApplicantsData.sharedInstance.mothersName = $0.value!
+                        ApplicantsData.sharedInstance.mothersName = str
                     }
                     else{
                         self.changeButtonTitle()
@@ -181,9 +166,7 @@ class WhereAboutsTableViewController: FormViewController {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    }
-                    if let _ = $0.value {
-                        ApplicantsData.sharedInstance.mothersOccupation = $0.value!
+                        ApplicantsData.sharedInstance.mothersOccupation = str
                     }
                     else{
                         self.changeButtonTitle()
@@ -202,9 +185,7 @@ class WhereAboutsTableViewController: FormViewController {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    }
-                    if let _ = $0.value {
-                        ApplicantsData.sharedInstance.mothersContribution = $0.value!
+                        ApplicantsData.sharedInstance.mothersContribution = str
                     }
                     else{
                         self.changeButtonTitle()
@@ -223,9 +204,7 @@ class WhereAboutsTableViewController: FormViewController {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    }
-                    if let _ = $0.value {
-                        ApplicantsData.sharedInstance.mothersEmail = $0.value!
+                        ApplicantsData.sharedInstance.mothersEmail = str
                     }
                     else{
                         self.changeButtonTitle()
@@ -244,9 +223,7 @@ class WhereAboutsTableViewController: FormViewController {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    }
-                    if let _ = $0.value {
-                        ApplicantsData.sharedInstance.motherscellNo = $0.value!
+                        ApplicantsData.sharedInstance.motherscellNo = str
                     }
                     else{
                         self.changeButtonTitle()
@@ -266,9 +243,7 @@ class WhereAboutsTableViewController: FormViewController {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    }
-                    if let _ = $0.value {
-                        ApplicantsData.sharedInstance.GuardianName = $0.value!
+                        ApplicantsData.sharedInstance.GuardianName = str
                     }
                     else{
                         self.changeButtonTitle()
@@ -287,9 +262,7 @@ class WhereAboutsTableViewController: FormViewController {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    }
-                    if let _ = $0.value {
-                        ApplicantsData.sharedInstance.guardiansOccupation = $0.value!
+                        ApplicantsData.sharedInstance.guardiansOccupation = str
                     }
                     else{
                         self.changeButtonTitle()
@@ -308,9 +281,7 @@ class WhereAboutsTableViewController: FormViewController {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    }
-                    if let _ = $0.value {
-                        ApplicantsData.sharedInstance.relationshipToYou = $0.value!
+                        ApplicantsData.sharedInstance.relationshipToYou = str
                     }
                     else{
                         self.changeButtonTitle()
@@ -329,9 +300,7 @@ class WhereAboutsTableViewController: FormViewController {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    }
-                    if let _ = $0.value {
-                        ApplicantsData.sharedInstance.guardianContribution = $0.value!
+                        ApplicantsData.sharedInstance.guardianContribution = str
                     }
                     else{
                         self.changeButtonTitle()
@@ -350,9 +319,7 @@ class WhereAboutsTableViewController: FormViewController {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    }
-                    if let _ = $0.value {
-                        ApplicantsData.sharedInstance.guardianEmail = $0.value!
+                        ApplicantsData.sharedInstance.guardianEmail = str
                     }
                     else{
                         self.changeButtonTitle()
@@ -371,9 +338,7 @@ class WhereAboutsTableViewController: FormViewController {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    }
-                    if let _ = $0.value {
-                        ApplicantsData.sharedInstance.guardiansResidentialAddress = $0.value!
+                        ApplicantsData.sharedInstance.guardiansResidentialAddress = str
                     }
                     else{
                         self.changeButtonTitle()
@@ -392,9 +357,7 @@ class WhereAboutsTableViewController: FormViewController {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    }
-                    if let _ = $0.value {
-                        ApplicantsData.sharedInstance.guardianCell = $0.value!
+                        ApplicantsData.sharedInstance.guardianCell = str
                     }
                     else{
                         self.changeButtonTitle()
@@ -414,9 +377,7 @@ class WhereAboutsTableViewController: FormViewController {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    }
-                    if let _ = $0.value {
-                        ApplicantsData.sharedInstance.yourNumber = $0.value!
+                        ApplicantsData.sharedInstance.yourNumber = str
                     }
                     else{
                         self.changeButtonTitle()
@@ -436,9 +397,7 @@ class WhereAboutsTableViewController: FormViewController {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    }
-                    if let _ = $0.value {
-                        ApplicantsData.sharedInstance.sibling1Name = $0.value!
+                        ApplicantsData.sharedInstance.sibling1Name = str
                     }
                     else{
                         self.changeButtonTitle()
@@ -457,9 +416,7 @@ class WhereAboutsTableViewController: FormViewController {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    }
-                    if let _ = $0.value {
-                        ApplicantsData.sharedInstance.sibling1Occupation = $0.value!
+                        ApplicantsData.sharedInstance.sibling1Occupation = str
                     }
                     else{
                         self.changeButtonTitle()
@@ -478,9 +435,7 @@ class WhereAboutsTableViewController: FormViewController {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    }
-                    if let _ = $0.value {
-                        ApplicantsData.sharedInstance.sibling1Contribution = $0.value!
+                        ApplicantsData.sharedInstance.sibling1Contribution = str
                     }
                     else{
                         self.changeButtonTitle()
@@ -499,9 +454,7 @@ class WhereAboutsTableViewController: FormViewController {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    }
-                    if let _ = $0.value {
-                        ApplicantsData.sharedInstance.sibling1Email = $0.value!
+                        ApplicantsData.sharedInstance.sibling1Email = str
                     }
                     else{
                         self.changeButtonTitle()
@@ -520,9 +473,7 @@ class WhereAboutsTableViewController: FormViewController {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    }
-                    if let _ = $0.value {
-                        ApplicantsData.sharedInstance.sibling1cellNo = $0.value!
+                        ApplicantsData.sharedInstance.sibling1cellNo = str
                     }
                     else{
                         self.changeButtonTitle()
@@ -542,9 +493,7 @@ class WhereAboutsTableViewController: FormViewController {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    }
-                    if let _ = $0.value {
-                        ApplicantsData.sharedInstance.sibling2Name = $0.value!
+                        ApplicantsData.sharedInstance.sibling2Name = str
                     }
                     else{
                         self.changeButtonTitle()
@@ -563,9 +512,7 @@ class WhereAboutsTableViewController: FormViewController {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    }
-                    if let _ = $0.value {
-                        ApplicantsData.sharedInstance.sibling2Occupation = $0.value!
+                        ApplicantsData.sharedInstance.sibling2Occupation = str
                     }
                     else{
                         self.changeButtonTitle()
@@ -584,9 +531,7 @@ class WhereAboutsTableViewController: FormViewController {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    }
-                    if let _ = $0.value {
-                        ApplicantsData.sharedInstance.sibling2Contribution = $0.value!
+                        ApplicantsData.sharedInstance.sibling2Contribution = str
                     }
                     else{
                         self.changeButtonTitle()
@@ -605,9 +550,7 @@ class WhereAboutsTableViewController: FormViewController {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    }
-                    if let _ = $0.value {
-                        ApplicantsData.sharedInstance.sibling2Email = $0.value!
+                        ApplicantsData.sharedInstance.sibling2Email = str
                     }
                     else{
                         self.changeButtonTitle()
@@ -619,24 +562,22 @@ class WhereAboutsTableViewController: FormViewController {
             <<< TextRow() {
                 $0.title = "Cell #"
                 $0.placeholder = "Tap to Enter"
-                $0.value = ApplicantsData.sharedInstance.yourCell
+                $0.value = ApplicantsData.sharedInstance.sibling2cellNo
                 $0.onChange {
                     if let str = $0.value{
-                        if  ApplicantsData.sharedInstance.yourCell.count == 0 && str.count > 0 {
+                        if  ApplicantsData.sharedInstance.sibling2cellNo.count == 0 && str.count > 0 {
                             self.changeButtonTitle()
                             self.count += 1
                         }
-                    }
-                    if let _ = $0.value {
-                        ApplicantsData.sharedInstance.yourCell = $0.value!
+                        ApplicantsData.sharedInstance.sibling2cellNo = str
                     }
                     else{
                         self.changeButtonTitle()
                         self.count -= 1
-                        ApplicantsData.sharedInstance.yourCell = ""
+                        ApplicantsData.sharedInstance.sibling2cellNo = ""
                     }
                 }
-        }
+            }
         
         +++ Section("Financial Details")
             <<< PushRow<String>() {
